@@ -1,17 +1,15 @@
 {
-  "name": "trangcorona_v1",
+  "name": "corona_website",
   "version": "1.0.0",
+  "description": "",
   "main": "sketch.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node sketch.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fetch-github-api": "^1.1.0",
     "novelcovid": "^1.0.7-b3"
-  },
-  "devDependencies": {},
-  "keywords": [],
-  "description": ""
+  }
 }
