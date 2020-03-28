@@ -2,12 +2,67 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="keyword" content="Corona,Cổna,nCoV,virus,víu,Nhiễm virus,Corona dashboard,Bệnh toàn cầu,Diễn biến virus,Theo dõi tình hình dịch bệnh,Cập nhật số liệu lây nhiễm,Theo dõi đại dịch,Map dịch bệnh,Link update dịch,Web theo dõi,Cona,Viu,Nhiem virus,Benh toan cau,Dien bien virus,Theo doi tinh hinh dich benh,Dich benh,Dịch bệnh,Map dich benh,Link update dich,Web theo doi">
+	<meta name = "description" content="Cập nhật tình hình Covid tại Việt Nam và trên thế giới">
+	<meta author="Nacriema">
+	<meta http-equiv="refresh" content="30">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Viet Nam Donation Disaster</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src="index.js"></script>
 </head>
 <body>
-	<h1>Trang thong tin tinh hinh dich covid</h1>
-	<h2>Thong tin tinh hinh dich benh tai Viet Nam</h2>
-	<p id = 'outputVN'></p>
+	<div class="navbar navbar-default"></div>
+	
+	<div class="container">		
+		<div class="row">
+			<div style="margin-top:20px; margin-bottom:40px; text-align: left">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="content inner">
+				<div class="label-counter" id="page-top">COVID-19 Coronavirus Pandemic</div>
+
+				<div style="font-size:13px; color:#999; text-align:center">Last updated: March 28, 2020, 17:42 GMT</div>
+
+				<div id="maincounter-wrap" style="margin-top:15px">
+					<h1>Coronavirus Cases:</h1>
+					<div class="maincounter-number">
+						<span style="color:red" id="case_num"></span>
+					</div>
+				</div>
+				
+				<div style="text-align:center "><a href="#countries">view by country</a></div>
+
+				<div id="maincounter-wrap" style="margin-top:15px">
+				<h1>Deaths:</h1>
+					<div class="maincounter-number">
+						<span id="death_num" ></span>
+					</div>
+				</div>
+
+
+				<div id="maincounter-wrap" style="margin-top:15px;">
+					<h1>Recovered:</h1>
+						<div class="maincounter-number" style="color:#8ACA2B ">
+							<span id="recover_num"></span>
+ 						</div>
+				</div>
+
+				<h1>Trang thong tin tinh hinh dich covid</h1>
+				<h2>Thong tin tinh hinh dich benh tai Viet Nam</h2>
+				<p id = 'outputVN'></p>
+			</div>
+		</div>	
+	</div>
+
+
+
 </body>
 </html>

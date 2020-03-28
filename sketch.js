@@ -10,6 +10,15 @@ const covid = require('novelcovid');
 
     // Make sure you return it, this usually implies if you are using this inside a function.
     // Use \n to break lines.
+    var deaths = document.getElementById('death_num');
+    deaths.innerHTML = all.deaths;
+
+    var cases = document.getElementById('case_num');
+    cases.innerHTML = all.cases;
+
+    var recovers = document.getElementById('recover_num');
+    recovers.innerHTML = all.recovered;
+
     return console.log(`Cases: ${all.cases}\nDeaths: ${all.deaths}\nRecovered: ${all.recovered}`)
 })();
 
