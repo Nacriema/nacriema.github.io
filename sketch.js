@@ -1,6 +1,7 @@
 console.log('Da vao duoc');
 // Declare the package
 const covid = require('novelcovid');
+const moment = require('moment');
 
 // Now we create a async/await
 (async () => {
@@ -19,7 +20,12 @@ const covid = require('novelcovid');
     var recovers = document.getElementById('recover_num');
     recovers.innerHTML = all.recovered;
 
-    return console.log(`Cases: ${all.cases}\nDeaths: ${all.deaths}\nRecovered: ${all.recovered}`)
+    var dateUpdated = document.getElementById('date-update')
+    var isoDate = new Date(all.updated);
+
+    dateUpdated.innerHTML = moment(isoDate).format('LLLL');
+
+    return console.log(`Cases: ${all.cases}\nDeaths: ${all.deaths}\nRecovered: ${all.recovered}\nActive: ${all.active}\nUpdate: ${all.updated}`)
 })();
 
 
