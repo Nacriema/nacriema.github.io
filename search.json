@@ -4,7 +4,7 @@
       "title"    : "Sharding in MongoDB",
       "category" : "Learn Jekyll",
       "tags"     : "mongodb",
-      "url"      : "/space-jekyll-template/sharding/",
+      "url"      : "/sharding/",
       "date"     : "12 Sep 2016"
     } ,
   
@@ -12,7 +12,7 @@
       "title"    : "Github is awesome",
       "category" : "Learn GH",
       "tags"     : "mongodb",
-      "url"      : "/space-jekyll-template/space/",
+      "url"      : "/space/",
       "date"     : "12 Mar 2016"
     } 
   
