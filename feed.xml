@@ -5,9 +5,23 @@
     <description>My personal website using jekyll-template.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 21 Sep 2020 23:50:00 +0700</pubDate>
-    <lastBuildDate>Mon, 21 Sep 2020 23:50:00 +0700</lastBuildDate>
+    <pubDate>Fri, 25 Sep 2020 12:31:42 +0700</pubDate>
+    <lastBuildDate>Fri, 25 Sep 2020 12:31:42 +0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>My first blog post</title>
+        <description>&lt;p class=&quot;music-read&quot;&gt;&lt;q&gt;Opportunity often comes disguised in the form of misfortune or temporary defeat.&lt;/q&gt; Napoleon Hill&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;https://github.com/Nacriema.png&quot; width=&quot;200&quot; height=&quot;200&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;một-chút-về-bản-thân&quot;&gt;Một chút về bản thân&lt;/h2&gt; &lt;p&gt;Xin chào, mình tên là Trương Mai Huy, hiện nay 22 tuổi (mình sinh năm 1998) và đang là sinh viên của chương trình đào tạo kỹ sư chất lượng cao P.F.I.E.V (Program de Formation d’Ingénieurs d’Excellence au Vietnam) tại Đà Nẵng.&lt;/p&gt; &lt;p&gt;Mình thì đam mê với lĩnh vực Trí tuệ nhân tạo và mong muốn sau này làm được thứ gì đó có ích. Mình không giỏi văn lắm nên là phần giới...</description>
+        <pubDate>Thu, 24 Sep 2020 23:00:00 +0700</pubDate>
+        <link>/My-first-blog-post/</link>
+        <guid isPermaLink="true">/My-first-blog-post/</guid>
+        
+        <category>introduce</category>
+        
+        
+        <category>Life</category>
+        
+      </item>
     
       <item>
         <title>Sharding in MongoDB</title>

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "My first blog post",
+      "category" : "Life",
+      "tags"     : "introduce",
+      "url"      : "/My-first-blog-post/",
+      "date"     : "24 Sep 2020"
+    } ,
+  
+    {
       "title"    : "Sharding in MongoDB",
       "category" : "Learn Jekyll",
       "tags"     : "mongodb",
