@@ -3,18 +3,29 @@
   <channel>
     <title>Nacriema's Page</title>
     <description>My personal website using jekyll-template.</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Sep 2020 12:31:42 +0700</pubDate>
-    <lastBuildDate>Fri, 25 Sep 2020 12:31:42 +0700</lastBuildDate>
+    <link>https://nacriema.github.io//</link>
+    <atom:link href="https://nacriema.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 26 Sep 2020 17:33:04 +0700</pubDate>
+    <lastBuildDate>Sat, 26 Sep 2020 17:33:04 +0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Saliency Maps</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Sep 2020 00:00:00 +0700</pubDate>
+        <link>https://nacriema.github.io//Saliency-maps/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//Saliency-maps/</guid>
+        
+        
+      </item>
     
       <item>
         <title>My first blog post</title>
         <description>&lt;p class=&quot;music-read&quot;&gt;&lt;q&gt;Opportunity often comes disguised in the form of misfortune or temporary defeat.&lt;/q&gt; Napoleon Hill&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;https://github.com/Nacriema.png&quot; width=&quot;200&quot; height=&quot;200&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;một-chút-về-bản-thân&quot;&gt;Một chút về bản thân&lt;/h2&gt; &lt;p&gt;Xin chào, mình tên là Trương Mai Huy, hiện nay 22 tuổi (mình sinh năm 1998) và đang là sinh viên của chương trình đào tạo kỹ sư chất lượng cao P.F.I.E.V (Program de Formation d’Ingénieurs d’Excellence au Vietnam) tại Đà Nẵng.&lt;/p&gt; &lt;p&gt;Mình thì đam mê với lĩnh vực Trí tuệ nhân tạo và mong muốn sau này làm được thứ gì đó có ích. Mình không giỏi văn lắm nên là phần giới...</description>
         <pubDate>Thu, 24 Sep 2020 23:00:00 +0700</pubDate>
-        <link>/My-first-blog-post/</link>
-        <guid isPermaLink="true">/My-first-blog-post/</guid>
+        <link>https://nacriema.github.io//My-first-blog-post/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//My-first-blog-post/</guid>
         
         <category>introduce</category>
         
@@ -27,8 +38,8 @@
         <title>Sharding in MongoDB</title>
         <description>&lt;p class=&quot;music-read&quot;&gt;&lt;a href=&quot;spotify:track:4DAZ8UYNpWVIV46aLkN2Qp&quot;&gt;Music for reading(spotify)&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2016/02/raw.gif&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;sharding--why-&quot;&gt;Sharding ? why ?&lt;/h2&gt; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quas, esse laudantium quis ipsa consequuntur iure atque! Necessitatibus quam quidem illum, corrupti molestiae, maxime neque, consequuntur quia alias, modi commodi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate rem ducimus dolores repellat itaque perferendis corporis ex dicta doloremque optio harum excepturi, ut, praesentium asperiores! Voluptatum amet perspiciatis iusto, fugiat!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, libero quia placeat necessitatibus culpa mollitia, illum, quam sed ratione ad eaque suscipit consectetur itaque quasi aperiam. Quaerat, nihil voluptas...</description>
         <pubDate>Mon, 12 Sep 2016 07:06:31 +0700</pubDate>
-        <link>/sharding/</link>
-        <guid isPermaLink="true">/sharding/</guid>
+        <link>https://nacriema.github.io//sharding/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//sharding/</guid>
         
         <category>mongodb</category>
         
@@ -41,8 +52,8 @@
         <title>Github is awesome</title>
         <description>&lt;p class=&quot;music-read&quot;&gt;&lt;a href=&quot;spotify:track:4DAZ8UYNpWVIV46aLkN2Qp&quot;&gt;Music for reading(spotify)&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2016/02/raw.gif&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;github--why-&quot;&gt;Github ? why ?&lt;/h2&gt; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quas, esse laudantium quis ipsa consequuntur iure atque! Necessitatibus quam quidem illum, corrupti molestiae, maxime neque, consequuntur quia alias, modi commodi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate rem ducimus dolores repellat itaque perferendis corporis ex dicta doloremque optio harum excepturi, ut, praesentium asperiores! Voluptatum amet perspiciatis iusto, fugiat!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, libero quia placeat necessitatibus culpa mollitia, illum, quam sed ratione ad eaque suscipit consectetur itaque quasi aperiam. Quaerat, nihil voluptas...</description>
         <pubDate>Sat, 12 Mar 2016 07:06:31 +0700</pubDate>
-        <link>/space/</link>
-        <guid isPermaLink="true">/space/</guid>
+        <link>https://nacriema.github.io//space/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//space/</guid>
         
         <category>mongodb</category>
         
