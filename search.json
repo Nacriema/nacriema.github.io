@@ -1,10 +1,26 @@
 [
   
     {
+      "title"    : "Setup FastAI",
+      "category" : "UbuntuFastai",
+      "tags"     : "Ubuntu Tricks and Fastai",
+      "url"      : "/posts/ubuntu/fastai/2020/09/30/Setup-FastAI/",
+      "date"     : "30 Sep 2020"
+    } ,
+  
+    {
+      "title"    : "Remove Old Snap Versions",
+      "category" : "Ubuntu",
+      "tags"     : "Ubuntu Tricks",
+      "url"      : "/posts/ubuntu/2020/09/29/How-To-Remove-Old-Snap-Versions/",
+      "date"     : "29 Sep 2020"
+    } ,
+  
+    {
       "title"    : "Saliency Maps",
       "category" : "",
       "tags"     : "",
-      "url"      : "/Saliency-maps/",
+      "url"      : "/posts/2020/09/25/Saliency-maps/",
       "date"     : "25 Sep 2020"
     } ,
   
@@ -12,7 +28,7 @@
       "title"    : "My first blog post",
       "category" : "Life",
       "tags"     : "introduce",
-      "url"      : "/My-first-blog-post/",
+      "url"      : "/posts/life/2020/09/24/My-first-blog-post/",
       "date"     : "24 Sep 2020"
     } ,
   
@@ -20,7 +36,7 @@
       "title"    : "Sharding in MongoDB",
       "category" : "Learn Jekyll",
       "tags"     : "mongodb",
-      "url"      : "/sharding/",
+      "url"      : "/posts/learn%20jekyll/2016/09/12/sharding/",
       "date"     : "12 Sep 2016"
     } ,
   
@@ -28,7 +44,7 @@
       "title"    : "Github is awesome",
       "category" : "Learn GH",
       "tags"     : "mongodb",
-      "url"      : "/space/",
+      "url"      : "/posts/learn%20gh/2016/03/12/space/",
       "date"     : "12 Mar 2016"
     } 
   
