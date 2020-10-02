@@ -5,9 +5,25 @@
     <description>My personal website using jekyll-template.</description>
     <link>https://nacriema.github.io//</link>
     <atom:link href="https://nacriema.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Sep 2020 17:18:15 +0700</pubDate>
-    <lastBuildDate>Tue, 29 Sep 2020 17:18:15 +0700</lastBuildDate>
+    <pubDate>Fri, 02 Oct 2020 19:29:04 +0700</pubDate>
+    <lastBuildDate>Fri, 02 Oct 2020 19:29:04 +0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Symbolic Links on Ubuntu</title>
+        <description>&lt;p class=&quot;music-read&quot;&gt;&lt;q&gt;Life is like riding a bicycle. To keep your balance you must keep moving.&lt;/q&gt; ---ALBERT EINSTEIN&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;/assets/img/symlink/ubuntu.jpg&quot; alt=&quot;cover&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;mục-đích&quot;&gt;Mục đích&lt;/h2&gt; &lt;p&gt;Lại là chuyên mục lười biếng của mình. Hiện tại đường dẫn đến thư mục của mình nó quá dài, mỗi lần truy cập bằng Terminal nó là một cực hình đối với mình. May thay trên Ubuntu nó có cái tính năng dành cho người lười gõ như mình. Thay vì gõ một mớ chữ, thì mình chỉ cần gõ vài dòng ngắn thôi mà đã có thể truy cập được cái thư mục mà...</description>
+        <pubDate>Sat, 03 Oct 2020 01:00:00 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/</guid>
+        
+        <category>Ubuntu Tricks</category>
+        
+        <category>Fastai</category>
+        
+        
+        <category>Ubuntu</category>
+        
+      </item>
     
       <item>
         <title>Setup FastAI</title>

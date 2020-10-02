@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Setup FastAI</title>
+    <title>Symbolic Links on Ubuntu</title>
 
     <meta name="description" content="">
 
@@ -15,7 +15,7 @@
     <!-- Social Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@">
-    <meta name="twitter:title" content="Setup FastAI">
+    <meta name="twitter:title" content="Symbolic Links on Ubuntu">
     <meta name="twitter:description" content="">
 
     
@@ -23,8 +23,8 @@
     
 
     <!-- Social Facebook/Open Graph -->
-    <meta property="og:url" content="https://nacriema.github.io//posts/ubuntu/fastai/2020/09/30/Setup-FastAI/">
-    <meta property="og:title" content="Setup FastAI">
+    <meta property="og:url" content="https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/">
+    <meta property="og:title" content="Symbolic Links on Ubuntu">
     
     <meta property="og:image" content="https://nacriema.github.io/">
     
@@ -32,7 +32,7 @@
     <meta property="og:site_name" content="Nacriema's Page">
 
     <!-- Social Google+/Schema.org  -->
-    <meta itemprop="name" content="Setup FastAI"/>
+    <meta itemprop="name" content="Symbolic Links on Ubuntu"/>
     <meta itemprop="description" content="">
     <meta itemprop="image" content="https://nacriema.github.io//assets/img/blog-image.png"/>
 
@@ -62,7 +62,7 @@
     <meta name="theme-color" content="#60cfe0">
 
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://nacriema.github.io//posts/ubuntu/fastai/2020/09/30/Setup-FastAI/">
+    <link rel="canonical" href="https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/">
     <link rel="alternate" type="application/rss+xml" title="Nacriema's Page" href="https://nacriema.github.io//feed.xml" />
 </head>
 
@@ -97,7 +97,7 @@
     
     <ul>
       <li><span>1</span></li>
-      <li><span> /posts/ubuntu/fastai/2020/09/30/Setup-FastAI/</span></li>
+      <li><span> /posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/</span></li>
       <li><span>⌘ blogspace λ </span></li>
       <li><span>* Menu</span></li>
     </ul>
@@ -297,41 +297,102 @@
         <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
             
                 <div class="time">
-                    <time itemprop="datePublished" datetime="2020-09-30 00:00:00 +0700">30 Sep 2020</time>
+                    <time itemprop="datePublished" datetime="2020-10-03 01:00:00 +0700">03 Oct 2020</time>
                 </div>
             
-            <h1 class="post-title" itemprop="name">Setup FastAI</h1>
+            <h1 class="post-title" itemprop="name">Symbolic Links on Ubuntu</h1>
 
             <article role="article" id="scroll" class="post-content" itemprop="articleBody">
-                <h2 id="mục-đích">Mục đích</h2>
+                <p class="music-read"><q>Life is like riding a bicycle. To keep your balance you must keep moving.</q> ---ALBERT EINSTEIN</p>
 
-<p>Mình viết bài này để ghi lại kinh nghiêm khi mình thực hiện cấu hình và cài đặt fastai</p>
+<p><img src="/assets/img/symlink/ubuntu.jpg" alt="cover" /></p>
 
-<h2 id="fastai-là-gì-">Fastai là gì ?</h2>
+<h2 id="mục-đích">Mục đích</h2>
 
-<h2 id="cách-cài-đặt-nó">Cách cài đặt nó</h2>
-<p>Dùng pip:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">fastai</span>
+<p>Lại là chuyên mục lười biếng của mình. Hiện tại đường dẫn đến thư mục của mình nó quá dài, mỗi lần truy cập bằng Terminal nó là một cực hình đối với mình. May thay trên Ubuntu nó có cái tính năng dành cho người lười gõ như mình. Thay vì gõ một mớ chữ, thì mình chỉ cần gõ vài dòng ngắn thôi mà đã có thể truy cập được cái thư mục mà mình cần. Đó là công dụng của “Symbolic link”, hay còn được gọi với cái tên “Symlink”.</p>
+
+<h2 id="bản-chất-của-symlink">Bản chất của Symlink</h2>
+
+<p>Symlink cho phép ta có thể tạo ra được một thư mục ảo, hoặc là một file ảo với cái thư mục mình đang thực sự muốn đến. Khi ta gọi đến thư mục ảo đó và thao tác bên trong đấy thì hệ thống sẽ làm việc với lại file hoặc thư mục gốc đó.</p>
+
+<p>Ví dụ:</p>
+
+<p>Thông thường mình phải truy cập đường dẫn dài loằng ngoằng để đến với thư mục làm việc của mình:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/media/hp/01D576CEBCC511F0/Ubuntu/Pytorch
 </code></pre></div></div>
 
-<h2 id="cấu-hình">Cấu hình</h2>
+<p>Thay vào đó mình muốn rút gọn lại thành</p>
 
-<p>Tiếp tục là series vọc vạc để tiết kiệm vùng nhớ home trên máy, mình bắt buộc phải thiết lập cài đặt cho thằng fastai. Cái file cấu hình của nó là: config.yml. File này nó nằm trong thư mục</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hp</span><span class="o">@</span><span class="n">n</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">r</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">e</span><span class="o">-</span><span class="n">m</span><span class="o">-</span><span class="n">a</span><span class="p">:</span><span class="o">~/</span><span class="p">.</span><span class="n">fastai</span><span class="err">$</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/myPytorch
 </code></pre></div></div>
 
-<p>Về mặc định thì nó sẽ thiết lập toàn bộ ở trong thư mục home của máy, nhưng mình thì muốn nó ra bên ngoài của ổ media nên là mình sửa toàn bộ mọi thử sang bên đó như sau:</p>
+<p>Và một khi mình cd đến thư mục /myPytorch thì hệ thống hiểu là mình muốn làm việc với lại đường dẫn gốc.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">archive_path</span><span class="p">:</span> <span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">hp</span><span class="o">/</span><span class="mi">01</span><span class="n">D576CEBCC511F0</span><span class="o">/</span><span class="n">Ubuntu</span><span class="o">/</span><span class="p">.</span><span class="n">fastai</span><span class="o">/</span><span class="n">archive</span>
-<span class="n">data_path</span><span class="p">:</span> <span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">hp</span><span class="o">/</span><span class="mi">01</span><span class="n">D576CEBCC511F0</span><span class="o">/</span><span class="n">Ubuntu</span><span class="o">/</span><span class="p">.</span><span class="n">fastai</span><span class="o">/</span><span class="n">data</span>
-<span class="n">model_path</span><span class="p">:</span> <span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">hp</span><span class="o">/</span><span class="mi">01</span><span class="n">D576CEBCC511F0</span><span class="o">/</span><span class="n">Ubuntu</span><span class="o">/</span><span class="p">.</span><span class="n">fastai</span><span class="o">/</span><span class="n">models</span>
-<span class="n">storage_path</span><span class="p">:</span> <span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">hp</span><span class="o">/</span><span class="mi">01</span><span class="n">D576CEBCC511F0</span><span class="o">/</span><span class="n">Ubuntu</span><span class="o">/</span><span class="n">tmp</span>
-<span class="n">version</span><span class="p">:</span> <span class="mi">2</span>
+<h2 id="cách-tạo-symlink">Cách tạo Symlink</h2>
+
+<p>Trên Linux, có công cụ tên là “ln”, cho phép ta tạo ra các symlink, cú pháp của nó như sau:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln -s &lt;source_file_directory&gt; &lt;link_file_directory&gt;
 </code></pre></div></div>
 
-<p>Vậy là ok rồi, khi mà mình sử dụng fastai để tải bộ dữ liệu có sẵn hay là model thì nó sẽ được lưu trữ toàn bộ sang bên ngoài, không còn dính chi tới bên trong nữa rồi.</p>
+<p>Ví dụ, nếu mình muốn tạo một symlink của thư mục “/media/hp/01D576CEBCC511F0/Ubuntu/Pytorch” thành “/myPytorch”, ta thực hiện lệnh sau:</p>
 
-<p>Bài viết này vẫn còn vài thứ nữa nghe, nếu như trong quá trình mình làm mà có cái chi mình tìm hiểu được thì sẽ tiếp tục cập nhật ở trên này.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ln -s /media/hp/01D576CEBCC511F0/Ubuntu/Pytorch /myPytorch
+</code></pre></div></div>
+
+<p><img src="/assets/img/symlink/set.png" alt="set" width="100%" /></p>
+
+<p>Để kiểm tra kết quả, ta có thể gọi đến symlink ta mới tạo và check thư mục bên trong đó.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span> <span class="o">/</span><span class="n">myPytorch</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/symlink/check.png" alt="check" width="100%" /></p>
+
+<p>Cái symlink thực chất không phải là một thư mục. Thay vào đó là một cái link đến thư mục gốc “/media/hp/01D576CEBCC511F0/Ubuntu/Pytorch”.</p>
+
+<h2 id="tạo-một-symlink-lâu-dài">Tạo một Symlink lâu dài</h2>
+
+<p>Chú ý rằng cái symlink ở trên chỉ tồn tại khi máy tính mình vẫn còn làm việc, một khi khởi động lại máy thì nó sẽ biến mất. Để có thể biến chúng tồn tại lâu, ta đơn giản là bỏ đi cái tham số “-s”. Và nó sẽ tạo thành một HARD LINK.</p>
+
+<h2 id="cách-xóa-symlink">Cách xóa Symlink</h2>
+
+<p>Để mà xóa đi Symlink, đầu tiên phải có quyền w đối với thư mục mà tồn tại symlink.</p>
+
+<p>Tiếp theo là ta sử dụng lệnh:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ln</span> <span class="o">-</span><span class="n">l</span> 
+</code></pre></div></div>
+<p>để kiểm tra xem file hoặc folder đó có tồn tại symlink tới nó hay không.</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls -l /usr/bin/python
+</code></pre></div></div>
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lrwxrwxrwx 1 root root 9 Apr 16  2018 /usr/bin/python -&gt; python2.7
+</code></pre></div></div>
+<p>Ký tự l trong output chỉ ra rằng nó có symlink. Ký hiệu “-&gt;” cho biết rằng file đó có symlink trỏ đến.</p>
+
+<p>Bước kế tiếp, ta sử dụng lệnh <strong>rm</strong></p>
+
+<p>Lệnh <strong>rm</strong> cho phép ta gỡ bỏ files và thư mục.</p>
+
+<p>Để xóa symlink, sử dụng lệnh <strong>rm</strong> với lại tên symlink cần muốn xóa:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm symlink_name
+</code></pre></div></div>
+
+<p>Để xóa nhiều symlink cùng một lúc, ta có thể pass nhiều tên vào với nhau và cách nhau bởi dấu cách</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm symlink1 symlink2
+</code></pre></div></div>
+
+<p>Sau đó gõ “y” và ấn Enter để đồng ý xóa.</p>
+
+<p>Bài viết này mình sẽ bổ sung thêm vài phần nữa. Nếu các bạn thấy hay hãy cho mình một share, nếu các bạn có ý kiến gì để cải thiện nội dung, hãy để lại một bình luận bên dưới để cho mình được biết thêm nhé.</p>
 
             </article>
 
@@ -339,17 +400,17 @@
 
     <h3>Share</h3>
 
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://nacriema.github.io//posts/ubuntu/fastai/2020/09/30/Setup-FastAI/%20via%20&#64;&hashtags=Ubuntu Tricks,Fastai,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/%20via%20&#64;&hashtags=Ubuntu Tricks,Fastai,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
 
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://nacriema.github.io//posts/ubuntu/fastai/2020/09/30/Setup-FastAI/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
 
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://nacriema.github.io//posts/ubuntu/fastai/2020/09/30/Setup-FastAI/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>
@@ -360,7 +421,7 @@
 
     <h3>Comments</h3>
     <!-- <div id="disqus_thread"></div> -->
-    <div id="disqus_thread" class="fb-comments" data-href="https://nacriema.github.io/Setup FastAI" data-numposts="5" data-width="100%"></div>
+    <div id="disqus_thread" class="fb-comments" data-href="https://nacriema.github.io/Symbolic Links on Ubuntu" data-numposts="5" data-width="100%"></div>
 </section>
 
 <!-- <script type="text/javascript">
@@ -371,7 +432,7 @@
         disqus_loaded = true;
         var disqus_shortname = 'Nacriema';
         var disqus_title = '';
-        var disqus_url = '/posts/ubuntu/fastai/2020/09/30/Setup-FastAI/';
+        var disqus_url = '/posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/';
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
