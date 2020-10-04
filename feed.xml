@@ -5,8 +5,8 @@
     <description>My personal website using jekyll-template.</description>
     <link>https://nacriema.github.io//</link>
     <atom:link href="https://nacriema.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 02 Oct 2020 19:29:04 +0700</pubDate>
-    <lastBuildDate>Fri, 02 Oct 2020 19:29:04 +0700</lastBuildDate>
+    <pubDate>Sun, 04 Oct 2020 20:57:20 +0700</pubDate>
+    <lastBuildDate>Sun, 04 Oct 2020 20:57:20 +0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -17,8 +17,6 @@
         <guid isPermaLink="true">https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/</guid>
         
         <category>Ubuntu Tricks</category>
-        
-        <category>Fastai</category>
         
         
         <category>Ubuntu</category>
