@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Command that usually used in Linux - Part 1/4",
+      "category" : "Ubuntu",
+      "tags"     : "Ubuntu Tricks",
+      "url"      : "/posts/ubuntu/2021/01/15/Command-That-Usually-Used-In-Linux-Part-1-Of-4/",
+      "date"     : "15 Jan 2021"
+    } ,
+  
+    {
       "title"    : "Symbolic Links on Ubuntu",
       "category" : "Ubuntu",
       "tags"     : "Ubuntu Tricks",

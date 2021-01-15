@@ -5,9 +5,23 @@
     <description>My personal website using jekyll-template.</description>
     <link>https://nacriema.github.io//</link>
     <atom:link href="https://nacriema.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 04 Oct 2020 21:42:20 +0700</pubDate>
-    <lastBuildDate>Sun, 04 Oct 2020 21:42:20 +0700</lastBuildDate>
+    <pubDate>Fri, 15 Jan 2021 17:20:39 +0700</pubDate>
+    <lastBuildDate>Fri, 15 Jan 2021 17:20:39 +0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Command that usually used in Linux - Part 1/4</title>
+        <description>&lt;h2 id=&quot;mục-lục&quot;&gt;Mục lục&lt;/h2&gt; &lt;p&gt;&lt;a href=&quot;#man&quot;&gt;man&lt;/a&gt; &lt;a href=&quot;#ls&quot;&gt;ls&lt;/a&gt; &lt;a href=&quot;#cd&quot;&gt;cd&lt;/a&gt; &lt;a href=&quot;#pwd&quot;&gt;pwd&lt;/a&gt; &lt;a href=&quot;#mkdir&quot;&gt;mkdir&lt;/a&gt; &lt;a href=&quot;#rmdir&quot;&gt;rmdir&lt;/a&gt; &lt;a href=&quot;#mv&quot;&gt;mv&lt;/a&gt; &lt;a href=&quot;#cp&quot;&gt;cp&lt;/a&gt; &lt;a href=&quot;#xdg-open&quot;&gt;xdg-open&lt;/a&gt; &lt;a href=&quot;#touch&quot;&gt;touch&lt;/a&gt;&lt;/p&gt; &lt;h2 id=&quot;man&quot;&gt;man&lt;/h2&gt; &lt;p&gt;Đây là lệnh cho phép ta có thể hiểu được những lệnh còn lại trong Linux.&lt;/p&gt; &lt;p&gt;Khi ta không biết bất kỳ một lệnh nào, hãy gõ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man &amp;lt;command&amp;gt;&lt;/code&gt; để có thể đọc được hướng dẫn.&lt;/p&gt; &lt;p&gt;&lt;img align=&quot;center&quot; src=&quot;https://i.ibb.co/zHJZvCD/Screenshot-from-2021-01-15-13-30-13.png)&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;p&gt;Hình ảnh của lệnh man&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Tips:&lt;/strong&gt; Ta cũng có những tool khác cho phép học các lệnh nhanh hơn. Ta có thể cài đặt package &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tldr&lt;/code&gt; rồi sau đó sử...</description>
+        <pubDate>Fri, 15 Jan 2021 23:55:00 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/ubuntu/2021/01/15/Command-That-Usually-Used-In-Linux-Part-1-Of-4/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/ubuntu/2021/01/15/Command-That-Usually-Used-In-Linux-Part-1-Of-4/</guid>
+        
+        <category>Ubuntu Tricks</category>
+        
+        
+        <category>Ubuntu</category>
+        
+      </item>
     
       <item>
         <title>Symbolic Links on Ubuntu</title>
