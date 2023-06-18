@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nacriema's Page</title>
+    <description>My personal website using jekyll-template.</description>
+    <link>https://nacriema.github.io//</link>
+    <atom:link href="https://nacriema.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 11 Mar 2021 18:04:05 +0700</pubDate>
+    <lastBuildDate>Thu, 11 Mar 2021 18:04:05 +0700</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Command that usually used in Linux - Part 1/4</title>
+        <description>&lt;h2 id=&quot;mục-lục&quot;&gt;Mục lục&lt;/h2&gt; &lt;p&gt;&lt;a href=&quot;#man&quot;&gt;man&lt;/a&gt; &lt;a href=&quot;#ls&quot;&gt;ls&lt;/a&gt; &lt;a href=&quot;#cd&quot;&gt;cd&lt;/a&gt; &lt;a href=&quot;#pwd&quot;&gt;pwd&lt;/a&gt; &lt;a href=&quot;#mkdir&quot;&gt;mkdir&lt;/a&gt; &lt;a href=&quot;#rmdir&quot;&gt;rmdir&lt;/a&gt; &lt;a href=&quot;#mv&quot;&gt;mv&lt;/a&gt; &lt;a href=&quot;#cp&quot;&gt;cp&lt;/a&gt; &lt;a href=&quot;#xdg-open&quot;&gt;xdg-open&lt;/a&gt; &lt;a href=&quot;#touch&quot;&gt;touch&lt;/a&gt;&lt;/p&gt; &lt;h2 id=&quot;man&quot;&gt;man&lt;/h2&gt; &lt;p&gt;Đây là lệnh cho phép ta có thể hiểu được những lệnh còn lại trong Linux.&lt;/p&gt; &lt;p&gt;Khi ta không biết bất kỳ một lệnh nào, hãy gõ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man &amp;lt;command&amp;gt;&lt;/code&gt; để có thể đọc được hướng dẫn.&lt;/p&gt; &lt;p&gt;&lt;img align=&quot;center&quot; src=&quot;https://i.ibb.co/zHJZvCD/Screenshot-from-2021-01-15-13-30-13.png)&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;p&gt;Hình ảnh của lệnh man&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Tips:&lt;/strong&gt; Ta cũng có những tool khác cho phép học các lệnh nhanh hơn. Ta có thể cài đặt package &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tldr&lt;/code&gt; rồi sau đó sử...</description>
+        <pubDate>Fri, 15 Jan 2021 23:55:00 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/ubuntu/2021/01/15/Command-That-Usually-Used-In-Linux-Part-1-Of-4/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/ubuntu/2021/01/15/Command-That-Usually-Used-In-Linux-Part-1-Of-4/</guid>
+        
+        <category>Ubuntu Tricks</category>
+        
+        
+        <category>Ubuntu</category>
+        
+      </item>
+    
+      <item>
+        <title>Symbolic Links on Ubuntu</title>
+        <description>&lt;p class=&quot;music-read&quot;&gt;&lt;q&gt;Life is like riding a bicycle. To keep your balance you must keep moving.&lt;/q&gt; ---ALBERT EINSTEIN&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;/assets/img/symlink/ubuntu.jpg&quot; alt=&quot;cover&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;mục-đích&quot;&gt;Mục đích&lt;/h2&gt; &lt;p&gt;Lại là chuyên mục lười biếng của mình. Hiện tại đường dẫn đến thư mục của mình nó quá dài, mỗi lần truy cập bằng Terminal nó là một cực hình đối với mình. May thay trên Ubuntu nó có cái tính năng dành cho người lười gõ như mình. Thay vì gõ một mớ chữ, thì mình chỉ cần gõ vài dòng ngắn thôi mà đã có thể truy cập được cái thư mục mà...</description>
+        <pubDate>Sat, 03 Oct 2020 01:00:00 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/ubuntu/2020/10/03/Symbolic-Link-On-Ubuntu/</guid>
+        
+        <category>Ubuntu Tricks</category>
+        
+        
+        <category>Ubuntu</category>
+        
+      </item>
+    
+      <item>
+        <title>Setup FastAI</title>
+        <description>&lt;h2 id=&quot;mục-đích&quot;&gt;Mục đích&lt;/h2&gt; &lt;p&gt;Mình viết bài này để ghi lại kinh nghiêm khi mình thực hiện cấu hình và cài đặt fastai&lt;/p&gt; &lt;h2 id=&quot;fastai-là-gì-&quot;&gt;Fastai là gì ?&lt;/h2&gt; &lt;h2 id=&quot;cách-cài-đặt-nó&quot;&gt;Cách cài đặt nó&lt;/h2&gt; &lt;p&gt;Dùng pip:&lt;/p&gt; &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fastai&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt; &lt;h2 id=&quot;cấu-hình&quot;&gt;Cấu hình&lt;/h2&gt; &lt;p&gt;Tiếp tục là series vọc vạc để tiết kiệm vùng nhớ home trên máy, mình bắt buộc phải thiết lập cài đặt cho thằng fastai. Cái file cấu hình của nó là: config.yml. File này nó nằm trong thư mục&lt;/p&gt; &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;hp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span...</description>
+        <pubDate>Wed, 30 Sep 2020 00:00:00 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/ubuntu/fastai/2020/09/30/Setup-FastAI/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/ubuntu/fastai/2020/09/30/Setup-FastAI/</guid>
+        
+        <category>Ubuntu Tricks</category>
+        
+        <category>Fastai</category>
+        
+        
+        <category>Ubuntu</category>
+        
+        <category>Fastai</category>
+        
+      </item>
+    
+      <item>
+        <title>Remove Old Snap Versions</title>
+        <description>&lt;h2 id=&quot;đôi-khi-cái-khó-nó-lại-ló-cái-khôn&quot;&gt;Đôi khi cái khó nó lại ló cái khôn&lt;/h2&gt; &lt;p&gt;Nguyên nhân là do máy mình không còn đủ dung lượng, nên mình tìm mọi cách để có thể giải quyết nó. Tình cờ mình truy tìm trong ổ đía xem có cái nào mình có thể xóa được không thì thấy rằng vẫn còn rất nhiều thứ có thể xóa được, cụ thể như là thằng mình đang đề cập đến đây.&lt;/p&gt; &lt;h2 id=&quot;snap-là-gì-&quot;&gt;Snap là gì ?&lt;/h2&gt; &lt;p&gt;Nó là hệ thông quản lý phần mềm và đóng gói được xây dựng bởi Canonical. Các gói thường được gọi là...</description>
+        <pubDate>Tue, 29 Sep 2020 23:00:00 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/ubuntu/2020/09/29/How-To-Remove-Old-Snap-Versions/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/ubuntu/2020/09/29/How-To-Remove-Old-Snap-Versions/</guid>
+        
+        <category>Ubuntu Tricks</category>
+        
+        
+        <category>Ubuntu</category>
+        
+      </item>
+    
+      <item>
+        <title>Saliency Maps</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Sep 2020 00:00:00 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/2020/09/25/Saliency-maps/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/2020/09/25/Saliency-maps/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>My first blog post</title>
+        <description>&lt;p class=&quot;music-read&quot;&gt;&lt;q&gt;Opportunity often comes disguised in the form of misfortune or temporary defeat.&lt;/q&gt; Napoleon Hill&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;https://github.com/Nacriema.png&quot; width=&quot;200&quot; height=&quot;200&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;một-chút-về-bản-thân&quot;&gt;Một chút về bản thân&lt;/h2&gt; &lt;p&gt;Xin chào, mình tên là Trương Mai Huy, hiện nay 22 tuổi (mình sinh năm 1998) và đang là sinh viên của chương trình đào tạo kỹ sư chất lượng cao P.F.I.E.V (Program de Formation d’Ingénieurs d’Excellence au Vietnam) tại Đà Nẵng.&lt;/p&gt; &lt;p&gt;Mình thì đam mê với lĩnh vực Trí tuệ nhân tạo và mong muốn sau này làm được thứ gì đó có ích. Mình không giỏi văn lắm nên là phần giới...</description>
+        <pubDate>Thu, 24 Sep 2020 23:00:00 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/life/2020/09/24/My-first-blog-post/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/life/2020/09/24/My-first-blog-post/</guid>
+        
+        <category>introduce</category>
+        
+        
+        <category>Life</category>
+        
+      </item>
+    
+      <item>
+        <title>Sharding in MongoDB</title>
+        <description>&lt;p class=&quot;music-read&quot;&gt;&lt;a href=&quot;spotify:track:4DAZ8UYNpWVIV46aLkN2Qp&quot;&gt;Music for reading(spotify)&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2016/02/raw.gif&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;sharding--why-&quot;&gt;Sharding ? why ?&lt;/h2&gt; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quas, esse laudantium quis ipsa consequuntur iure atque! Necessitatibus quam quidem illum, corrupti molestiae, maxime neque, consequuntur quia alias, modi commodi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate rem ducimus dolores repellat itaque perferendis corporis ex dicta doloremque optio harum excepturi, ut, praesentium asperiores! Voluptatum amet perspiciatis iusto, fugiat!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, libero quia placeat necessitatibus culpa mollitia, illum, quam sed ratione ad eaque suscipit consectetur itaque quasi aperiam. Quaerat, nihil voluptas...</description>
+        <pubDate>Mon, 12 Sep 2016 07:06:31 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/learn%20jekyll/2016/09/12/sharding/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/learn%20jekyll/2016/09/12/sharding/</guid>
+        
+        <category>mongodb</category>
+        
+        
+        <category>Learn Jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>Github is awesome</title>
+        <description>&lt;p class=&quot;music-read&quot;&gt;&lt;a href=&quot;spotify:track:4DAZ8UYNpWVIV46aLkN2Qp&quot;&gt;Music for reading(spotify)&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2016/02/raw.gif&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;github--why-&quot;&gt;Github ? why ?&lt;/h2&gt; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quas, esse laudantium quis ipsa consequuntur iure atque! Necessitatibus quam quidem illum, corrupti molestiae, maxime neque, consequuntur quia alias, modi commodi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate rem ducimus dolores repellat itaque perferendis corporis ex dicta doloremque optio harum excepturi, ut, praesentium asperiores! Voluptatum amet perspiciatis iusto, fugiat!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, libero quia placeat necessitatibus culpa mollitia, illum, quam sed ratione ad eaque suscipit consectetur itaque quasi aperiam. Quaerat, nihil voluptas...</description>
+        <pubDate>Sat, 12 Mar 2016 07:06:31 +0700</pubDate>
+        <link>https://nacriema.github.io//posts/learn%20gh/2016/03/12/space/</link>
+        <guid isPermaLink="true">https://nacriema.github.io//posts/learn%20gh/2016/03/12/space/</guid>
+        
+        <category>mongodb</category>
+        
+        
+        <category>Learn GH</category>
+        
+      </item>
+    
+  </channel>
+</rss>
