@@ -1,15 +1,30 @@
-var gulp        = require('gulp'),
-	plumber     = require('gulp-plumber'),
-	browserSync = require('browser-sync'),
-	stylus      = require('gulp-stylus'),
-	uglify      = require('gulp-uglify'),
-	concat      = require('gulp-concat'),
-	jeet        = require('jeet'),
-	rupture     = require('rupture'),
-	koutoSwiss  = require('kouto-swiss'),
-	prefixer    = require('autoprefixer-stylus'),
-	imagemin    = require('gulp-imagemin'),
-	cp          = require('child_process');
+// var gulp        = require('gulp'),
+// 	plumber     = require('gulp-plumber'),
+// 	browserSync = require('browser-sync'),
+// 	stylus      = require('gulp-stylus'),
+// 	uglify      = require('gulp-uglify'),
+// 	concat      = require('gulp-concat'),
+// 	jeet        = require('jeet'),
+// 	rupture     = require('rupture'),
+// 	koutoSwiss  = require('kouto-swiss'),
+// 	prefixer    = require('autoprefixer-stylus'),
+// 	imagemin    = require('gulp-imagemin'),
+// 	cp          = require('child_process');
+
+// Use import instead
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import browserSync from 'browser-sync';
+import stylus from 'gulp-stylus';
+import uglify from 'gulp-uglify';
+import concat from 'gulp-concat';
+import jeet from 'jeet';
+import rupture from 'rupture';
+import koutoSwiss from 'kouto-swiss';
+import prefixer from 'autoprefixer-stylus';
+import imagemin from 'gulp-imagemin';
+import cp from 'child_process';
+
 
 var messages = {
 	jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
