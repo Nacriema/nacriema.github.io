@@ -61,10 +61,6 @@ links:
       new_tab: true
       key_trigger: g
       external: true
-    - title: facebook
-      url: https://www.facebook.com/nacriema98
-      key_trigger: f
-      external: true
     - title: search
       url: ""
       key_trigger: s #WARNING: search only works with "s"
@@ -81,11 +77,13 @@ projects:
 # Link to all platforms that I have to give inside the About CV section
 facts:
   - name: Residence
-    value: '<a href="https://www.google.com/maps/place/London,+UK/@51.5285582,-0.2416814,11z/data=!3m1!4b1!4m5!3m4!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5072178!4d-0.1275862"><i class="fa fa-home fact-icon"></i>London</a>'
+    value: '<a href="https://www.google.com/maps/place/Qu%E1%BA%A3ng+Nam/@15.5089737,107.644709,10z/data=!4m6!3m5!1s0x31420dd4e1353a7b:0xe49cabb166747679!8m2!3d15.5393538!4d108.019102!16zL20vMDRsZl9n?entry=ttu"><i class="fa fa-home fact-icon"></i>London</a>'
   - name: Github
     value: '<a href="https://github.com/Nacriema"><i class="fab fa-github fact-icon"></i>Nacriema</a>'
-  - name: LikedIn
-    value: '<a href="https://github.com/Nacriema"><i class="fab fa-likedin fact-icon"></i>Nacriema</a>'
+  - name: LinkedIn
+    value: '<a href="https://github.com/Nacriema"><i class="fab fa-linkedin fact-icon"></i>Nacriema</a>'
+  - name: Mobile
+    value: '<a href="tel:+84916694687"><i class="fa fa-phone fact-icon"></i>+84916694687</a>'
 
 # exclude my node related stuff
 exclude: ["package.json", "src", "node_modules"]
