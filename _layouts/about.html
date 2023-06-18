@@ -14,7 +14,7 @@ layout: compress
         <!-- <section class="post" itemscope itemtype="http://schema.org/WebPage">
             <article role="article" id="scroll" class="post-content" role="main" itemprop="mainContentOfPage">
                 {{ content }}
-            </article>
+            </article>each
         </section> -->
 
         <div class="container page">
@@ -45,7 +45,7 @@ layout: compress
                     <!-- This is the address fields   -->
                     <div class="col-print-6 col-12 col-md-5 offset-lg-1 col-lg-4">
                         <ul class="list-group list-group-flush">
-                            {% for fact in site.facts%}
+                            {% for fact in site.facts %}
                                 <li class="list-group-item d-flex justify-content-between align-items-start">
                                     <span class="text-nowrap">{{ fact.name }}</span>
                                     <span class="text-nowrap">{{ fact.value }}</span>
@@ -55,6 +55,106 @@ layout: compress
                     </div>
                 </div>
             </div>
+            
+            <!-- Intoduction about me -->
+            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
+                English poet, playwright and actor, widely regarded as the greatest writer in the English language
+                and the world's pre-eminent dramatist. Often called England's national poet and the "Bard of Avon".
+                My extant work is including collaborations, consist of approximately 38 plays, 154 sonnets,
+                two long narrative poems and a few other verses, some of uncertain authorship.
+            </div>
+            
+            <!-- Skills here -->
+            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
+                <h3 class="h2 screen mb-4">Skills</h3>
+                <div class="row align-items-center">
+                    {% for skill in site.skills %}
+                        <div class="col-print-1 col-3 col-md-2 col-lg-1 text-right">
+                            <small>{{ skill.name }}</small>
+                        </div>
+                        <div class="col-print-1 col-3 col-md-2 col-lg-1">
+                            <div class="skills">
+                                <div class="skills-bar" style="width: {{ skill.value }}%"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Work experience -->
+            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
+                <h2 class="mb-4">Professional Experience</h2>
+
+                    {% for position in site.positions %}
+                        <div class="row d-block d-md-flex">
+                            <div class="col-md-2 pt-1">
+                                {{ position.period }}
+                            </div>
+                            <div class="col-md-10">
+                                <h3 class="fs-4 fw-normal">{{ position.title }}</h3>
+                                <div>{{ position.contents }}</div>
+                                <p>
+                                    {% for skill in position.skills %}
+                                        <span class="badge text-body border border-1">{{ skill }}</span>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %} 
+            </div>
+            
+            <!-- Education and Certifications -->
+            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
+                <h2 class="mb-4">Education</h2>
+                <p>Masters degree in Computer Science. Danang University of Technology [2016 – 2021]</p>
+        
+                <h2>Certifications</h2>
+                <ul class="mb-0">
+                    <li><i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
+                    </li>
+
+                    <li><i class="fa fa-language"></i> TOEIC - July 20, 2022
+                    </li>
+
+
+                    <!-- <li><i class="fab fa-aws"></i> <a
+                        href="https://www.credly.com/badges/a1fe082b-cf1e-4f58-b59d-d8e16e492969/public_url">AWS
+                        Certified Solutions Architect - Associate</a> - Jan 18, 2019
+                    </li>
+                    <li><i class="fas fa-redo"></i> <a href="https://www.scrum.org/user/323673">Professional Scrum Master I</a> -
+                        Apr 2, 2018
+                    </li>
+                    <li>
+                        <i class="fab fa-react"></i> <a href="https://confirm.udacity.com/RMTJQHYX">React Nanodegree</a> - Dec 27,
+                        2017
+                    </li>
+                    <li><i class="fab fa-php"></i> Zend Certified Engineer <span class="badge text-body border border-1">PHP 5.3</span> - Jan
+                        24, 2011
+                    </li> -->
+                </ul>
+            </div>
+
+
+            <div>
+                <h2 class="mb-4">Additional experience</h2>
+        
+                <ul>
+                    <li>
+                        Some of my interests and hobbies revolve around GitHub and open source community.<br/>
+                        A complete list of side/hobby projects: <a href="https://github.com/Nacriema">https://github.com/Nacriema</a>
+                    </li>
+                    <li>
+                        (Not so)Active member of developer communities
+        
+        
+                        <br/>
+                        Categories: <span class="badge text-body border border-1">Javascript</span> <span
+                        class="badge text-body border border-1">Angular</span> <span class="badge text-body border border-1">React</span> <span
+                        class="badge text-body border border-1">Typescript</span>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
     </body>

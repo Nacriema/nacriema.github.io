@@ -77,13 +77,32 @@ projects:
 # Link to all platforms that I have to give inside the About CV section
 facts:
   - name: Residence
-    value: '<a href="https://www.google.com/maps/place/Qu%E1%BA%A3ng+Nam/@15.5089737,107.644709,10z/data=!4m6!3m5!1s0x31420dd4e1353a7b:0xe49cabb166747679!8m2!3d15.5393538!4d108.019102!16zL20vMDRsZl9n?entry=ttu"><i class="fa fa-home fact-icon"></i>London</a>'
+    value: '<a href="https://www.google.com/maps/place/Qu%E1%BA%A3ng+Nam/@15.5089737,107.644709,10z/data=!4m6!3m5!1s0x31420dd4e1353a7b:0xe49cabb166747679!8m2!3d15.5393538!4d108.019102!16zL20vMDRsZl9n?entry=ttu"><i class="fa fa-home fact-icon"></i>Quangnam, Vietnam</a>'
   - name: Github
     value: '<a href="https://github.com/Nacriema"><i class="fab fa-github fact-icon"></i>Nacriema</a>'
   - name: LinkedIn
     value: '<a href="https://github.com/Nacriema"><i class="fab fa-linkedin fact-icon"></i>Nacriema</a>'
   - name: Mobile
     value: '<a href="tel:+84916694687"><i class="fa fa-phone fact-icon"></i>+84916694687</a>'
+
+
+# Skills section for the About CV
+skills:
+  - name: XXX
+    value: 100
+  - name: Comedy
+    value: 100
+  - name: Plays
+    value: 50
+
+# Working expericences
+positions:
+  - title: Hamlet
+    period: Nov 2021 - Present
+    skills: ['Python', 'Pytorch']
+    contents: Prince Hamlet is visited by his father's ghost and ordered to avenge his father's murder by killing King Claudius, his uncle. After struggling with several questions, including whether what the ghost said is true and whether it is right for him to take revenge, Hamlet, along with almost all the other major characters, is killed.
+
+# TODO: Define dynamic education and certifications here
 
 # exclude my node related stuff
 exclude: ["package.json", "src", "node_modules"]
