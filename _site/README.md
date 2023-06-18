@@ -1,2 +1,8 @@
-# Github-Page-Dev-Env
-Browser Sync and Gulp develop environment for my github's page 
+# Nacriema's Github Page
+
+## References
+* https://github.com/sneas/cv-template
+
+
+## Note
+* Github will automate find the `_site` folder and generate the github page for me
