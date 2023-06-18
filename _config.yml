@@ -1,0 +1,82 @@
+# Site settings
+title: Nacriema's Page
+description: "My personal website using jekyll-template."
+
+# baseurl: "" # for test: remove string '/space-jekyll-template' to ''
+# url: "https://nacriema.github.io" # for test: remove string 'http://victorvoid.github.io' to '' but in production: 'https://yourusername.github.io'
+
+baseurl: "" # for test: remove string '/space-jekyll-template' to ''
+url: "" # for test: remove string 'http://victorvoid.github.io' to '' but in production: 'https://yourusername.github.io'
+
+# Future post allow
+future: true
+
+# Google services
+google_analytics: G-B9C4LJQ29X
+
+# User settings
+username: Nacriema
+user_title: Lorem Ipsum - FrontEnd
+email: huytruong2931998@gmail.com
+twitter_username:
+github_username: Nacriema
+gplus_username:
+linkedin_public_url: # Example: For public profile 'www.linkedin.com/in/john-smith', 'john-smith' is your linkedin_public_url
+disqus_username: Nacriema
+profile_picture: https://github.com/Nacriema.png
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:categories/:year/:month/:day/:title/
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+links:
+  section_1:
+    - title: home
+      url: /
+      key_trigger: 1
+    - title: my posts
+      url: /posts
+      key_trigger: 2
+    - title: series
+      url: /series
+      key_trigger: 3
+    - title: tags
+      url: /tags
+      key_trigger: 4
+    - title: about me
+      url: /about
+      key_trigger: 5
+  section_2:
+    - title: github
+      url: https://github.com/Nacriema
+      new_tab: true
+      key_trigger: g
+      external: true
+    - title: facebook
+      url: https://www.facebook.com/nacriema98
+      key_trigger: f
+      external: true
+    - title: search
+      url: ""
+      key_trigger: s #WARNING: search only works with "s"
+
+# projects in header index
+projects:
+  - name: 15 Puzzle Problem
+    url: https://github.com/Nacriema/15-puzzle-Problem-Java-Version
+  - name: ID3 DecisionTree
+    url: https://github.com/Nacriema/DecisionTree_ID3
+  - name: K-means Clustering
+    url: https://github.com/Nacriema/K-means-Clustering-
+
+# exclude my node related stuff
+exclude: ["package.json", "src", "node_modules"]

@@ -1,0 +1,30 @@
+a
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+
+@font-face {
+  font-family: 'Amatic SC';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Amatic SC Bold'), local('AmaticSC-Bold'), url('../../assets/font/amatic-sc-v14-vietnamese_latin-700.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url('../../assets/font/open-sans-v18-vietnamese_latin-regular.woff') format('woff');
+}
+
+mainFont(weight = 800)
+    font-family 'Open Sans', sans-serif
+    font-weight weight
+    font-style normal
+
+headerFont(weight = 700)
+    font-family 'Amatic SC', sans-serif
+    font-weight weight
+    font-style normal
+
+h1,h2,h3,h4
+    mainFont()
