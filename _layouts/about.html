@@ -91,8 +91,14 @@ layout: compress
                                 {{ position.period }}
                             </div>
                             <div class="col-md-10">
-                                <h3 class="fs-4 fw-normal">{{ position.title }}</h3>
-                                <div>{{ position.contents }}</div>
+                                <h3 class="fs-4 fw-normal">{{ position.company }},
+                                    <small>{{ position.location }}</small>
+                                </h3>
+                                <p> {{ position.title }}</p>
+
+                                <!-- Reference - Parsing text to mardown html: https://stackoverflow.com/questions/62524875/jekyll-website-cannot-convert-markdown-and-liquid-to-html-properly-with-github -->
+                                <div>{{ position.contents | markdownify | liquify }}</div>
+                                
                                 <p>
                                     {% for skill in position.skills %}
                                         <span class="badge text-body border border-1">{{ skill }}</span>
@@ -106,7 +112,7 @@ layout: compress
             <!-- Education and Certifications -->
             <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
                 <h2 class="mb-4">Education</h2>
-                <p>Masters degree in Computer Science. Danang University of Technology [2016 – 2021]</p>
+                <p>Masters degree in Computer Science. Danang University of Technology [2016 – 2021]. GPA: 3.4</p>
         
                 <h2>Certifications</h2>
                 <ul class="mb-0">
@@ -134,7 +140,7 @@ layout: compress
                 </ul>
             </div>
 
-
+            <!-- My Additional Experience -->
             <div>
                 <h2 class="mb-4">Additional experience</h2>
         

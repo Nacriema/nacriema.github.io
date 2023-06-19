@@ -67,12 +67,12 @@ links:
 
 # projects in header index
 projects:
-  - name: 15 Puzzle Problem
-    url: https://github.com/Nacriema/15-puzzle-Problem-Java-Version
-  - name: ID3 DecisionTree
-    url: https://github.com/Nacriema/DecisionTree_ID3
-  - name: K-means Clustering
-    url: https://github.com/Nacriema/K-means-Clustering-
+  - name: Loss Functions for Semantic Segmentation
+    url: https://github.com/Nacriema/Loss-Functions-For-Semantic-Segmentation
+  - name: Neural Network Interpretation
+    url: https://github.com/Nacriema/Neural-Network-Interpretation
+  - name: Shadow Removal Algorithm
+    url: https://github.com/Nacriema/Robust_Face_Recognition
 
 # Link to all platforms that I have to give inside the About CV section
 facts:
@@ -97,10 +97,27 @@ skills:
 
 # Working expericences
 positions:
-  - title: Hamlet
+  - company: DSoft-JSC
+    location: Danang, VN
+    title: AI Engineer
     period: Nov 2021 - Present
     skills: ['Python', 'Pytorch']
-    contents: Prince Hamlet is visited by his father's ghost and ordered to avenge his father's murder by killing King Claudius, his uncle. After struggling with several questions, including whether what the ghost said is true and whether it is right for him to take revenge, Hamlet, along with almost all the other major characters, is killed.
+    contents: "[Vocably](https://vocably.pro) is a platform (extension and an app) that helps users to look up new words while surfing the web and study those words as flashcards on mobile.
+
+              As a founder and the only developer of Vocably, I'm responsible for:
+
+              * Developing backend with AWS / GCP / NodeJS / Lambda / API Gateway / Cognito
+
+              * Developing frontend/mobile experience (PWA) with Angular / Amplify
+
+              * Developing Chrome Extension with Vanilla / Web Components
+
+              * DevOps and CI/CD with CircleCI / Terraform / NodeJS / Zx / Bash
+
+              * Testing with Jest / Cypress / Endtest.io
+
+              * Market analysis, product marketing, cost and pricing analysis
+              "
 
 # TODO: Define dynamic education and certifications here
 

@@ -1,2 +1,5 @@
 node_modules
 .jekyll-cache/
+package-lock.json
+package.json
+yarn.lock
