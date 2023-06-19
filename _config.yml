@@ -100,24 +100,52 @@ positions:
   - company: DSoft-JSC
     location: Danang, VN
     title: AI Engineer
-    period: Nov 2021 - Present
-    skills: ['Python', 'Pytorch']
-    contents: "[Vocably](https://vocably.pro) is a platform (extension and an app) that helps users to look up new words while surfing the web and study those words as flashcards on mobile.
+    period: August 2022 - Present
+    skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis']
+    contents: "
+              * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system. `Avanti R&D`
 
-              As a founder and the only developer of Vocably, I'm responsible for:
+              * Developed the algorithm to interpret the new position of the lane dividers after the camera has changed a little bit. `Avanti R&D`
 
-              * Developing backend with AWS / GCP / NodeJS / Lambda / API Gateway / Cognito
+              * Developed the algorithm to automatically control the PTZ camera to the predefined position (given the reference image). `Avanti R&D`
 
-              * Developing frontend/mobile experience (PWA) with Angular / Amplify
+              * Developed the algorithm to automatically detect the lane dividers based on the vehicle trajectories on the roads. `Avanti R&D`
 
-              * Developing Chrome Extension with Vanilla / Web Components
+              * Developed, tested, improved algorithms to the `FaceLog` system: Optimize streaming process. Fix bug for the recognition flow. Implement head pose estimation. Implement Face quality analysis. Add the antispoffing model. Allows `FaceLog` to use for automatic checkin checkout.
 
-              * DevOps and CI/CD with CircleCI / Terraform / NodeJS / Zx / Bash
+              * Designed and trained lightweight Age, Gender and Mask (`AGM`) prediction models that can run on smart phone devices.
 
-              * Testing with Jest / Cypress / Endtest.io
+              * Contribued to the Facebook's crawler tool: get user infomation from the given facebook profile link.
+    "
 
-              * Market analysis, product marketing, cost and pricing analysis
-              "
+  - company: Freelancer
+    location: Danang, VN
+    title: AI Engineer
+    period: November 2021 - July 2022
+    skills: ['Pytorch', 'Python', 'MongoDB']
+    contents: "
+              * Contributed to `EVN-CPC` project: 
+    "
+
+  - company: FTetch AI
+    location: Danang, VN
+    title: AI - Intern
+    period: June 2020 - April 2021
+    skills: ['Pytorch', 'Tensorflow', 'OpenCV']
+    contents: "
+              * Trainee process in 5 months: Understand the algorithms that frequently used in Computer vision and re implement it. Joined to develop the AI tools that used to inspect the learning process of the model by visualization techniques
+              
+              * Joined in the production team: `Documentation Analysis` - developed the segmentation, applied the synthetic training data augmentation to improve the performance of the model.
+    "
+
+  - company: FPT Software
+    location: Danang, VN
+    title: Software Engineer - Intern
+    period: 
+    skills: ['SQL']
+    contents: "
+              * TODO: See my old job description to fullfill the remain parts
+    "
 
 # TODO: Define dynamic education and certifications here
 

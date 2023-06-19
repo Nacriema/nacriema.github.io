@@ -9,8 +9,6 @@ layout: compress
     <body>
         {% include svg-icons.html %}
         {% include header-post.html %}
-        {% include scripts.html %}
-
         <!-- <section class="post" itemscope itemtype="http://schema.org/WebPage">
             <article role="article" id="scroll" class="post-content" role="main" itemprop="mainContentOfPage">
                 {{ content }}
@@ -31,7 +29,7 @@ layout: compress
                                 <time datetime="{{ buildinfo.date }}" class="small">Last update: October 13, 2023 </time>
                             </p>
                             <p>
-                                <span class="screen"><a href="{{ pdfFileName }}"><i class="far fa-file-pdf"></i>Download PDF version</a></span>
+                                <span class="screen"><a onclick="generatePDF()"><i class="far fa-file-pdf"></i>Download PDF version</a></span>
                                 <span class="print">Up-to-date version of CV is available at <a href="{{ baseUrl }}"
                                                                                                 class="text-nowrap"><i
                                     class="fab fa-github" aria-hidden="true"></i>{{ baseUrl }}</a></span>
@@ -98,7 +96,7 @@ layout: compress
 
                                 <!-- Reference - Parsing text to mardown html: https://stackoverflow.com/questions/62524875/jekyll-website-cannot-convert-markdown-and-liquid-to-html-properly-with-github -->
                                 <div>{{ position.contents | markdownify | liquify }}</div>
-                                
+
                                 <p>
                                     {% for skill in position.skills %}
                                         <span class="badge text-body border border-1">{{ skill }}</span>
@@ -113,7 +111,13 @@ layout: compress
             <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
                 <h2 class="mb-4">Education</h2>
                 <p>Masters degree in Computer Science. Danang University of Technology [2016 – 2021]. GPA: 3.4</p>
-        
+                
+                <h2>Achievements</h2>
+                <ul class="mb-0">
+                    <li><i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
+                    </li>
+                </ul>
+
                 <h2>Certifications</h2>
                 <ul class="mb-0">
                     <li><i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
@@ -164,4 +168,5 @@ layout: compress
         </div>
 
     </body>
+    {% include scripts.html %}
 </html>
