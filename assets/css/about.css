@@ -156,3 +156,12 @@ h1, h2, h3, h4 {
     content: '••••';
     color: var(--bs-primary);
 }
+
+#experience ul, li { 
+    list-style-type: none;
+}
+
+#experience li::before {
+    content: '• '; 
+    margin-left: -1em; 
+}
