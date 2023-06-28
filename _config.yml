@@ -16,7 +16,7 @@ google_analytics: G-B9C4LJQ29X
 
 # User settings
 username: Nacriema
-user_title: Lorem Ipsum - FrontEnd
+user_title: Huy Truong Mai - AI Engineer
 email: huytruong2931998@gmail.com
 twitter_username:
 github_username: Nacriema
@@ -87,16 +87,21 @@ facts:
     value: '<a href="https://github.com/Nacriema"><i class="fab fa-linkedin fact-icon"></i>Nacriema</a>'
   - name: Mobile
     value: '<a href="tel:+84916694687"><i class="fa fa-phone fact-icon"></i>+84916694687</a>'
+  - name: Email
+    value: '<a href="mailto:huytruong2931998@gmail.com"><i class="fa fa-envelope fact-icon"></i>huytruong2931998@gmail.com</a>'
 
 
 # Skills section for the About CV
 skills:
-  - name: XXX
-    value: 100
-  - name: Comedy
-    value: 100
-  - name: Plays
-    value: 50
+  - name: English
+    value: 90
+  - name: French
+    value: 75
+
+# Introduction
+introduction: "
+              As an experienced machine learning engineer with a strong background in computer science and mathematics, I am skilled in developing and implementing machine learning algorithms that drive business value. I have expertise in various machine learning techniques, including deep learning and computer vision.
+"
 
 # Working expericences
 positions:
@@ -106,7 +111,7 @@ positions:
     period: August 2022 - Present
     skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis']
     contents: "
-              * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system. `Avanti R&D`
+              * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system. [`Avanti R&D`]()
 
               * Developed the algorithm to interpret the new position of the lane dividers after the camera has changed a little bit. `Avanti R&D`
 
@@ -150,7 +155,18 @@ positions:
               * TODO: See my old job description to fullfill the remain parts
     "
 
-# TODO: Define dynamic education and certifications here
+# Education
+education: "Masters degree in Computer Science. Danang University of Technology [2016 – 2022]. GPA: 3.5"
+
+# Achievements - Through Education and Professional Experience
+# TODO: Need to be fulfilled by me
+
+# Certifications
+certifications:
+  - name: <i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
+  - name: <i class="fa fa-language"></i> TOEIC 750 - July 20, 2022
+
+
 
 # exclude my node related stuff
 exclude: ["package.json", "src", "node_modules"]
