@@ -164,9 +164,13 @@ education: "Masters degree in Computer Science. Danang University of Technology 
 # Certifications
 certifications:
   - name: <i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
-  - name: <i class="fa fa-language"></i> TOEIC 750 - July 20, 2022
+  - name: <i class="fa fa-language"></i> TOEIC 850 - July 20, 2022
 
-
+# Additional experience
+additional:
+  - project: Container AI
+  - project: Aviso
+  - project: Virtual TikToker
 
 # exclude my node related stuff
 exclude: ["package.json", "src", "node_modules"]

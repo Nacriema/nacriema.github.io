@@ -109,34 +109,33 @@ layout: compress
 
                 <h2>Certifications</h2>
                 <ul class="mb-0">
-                    <li><i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
-                    </li>
-
-                    <li><i class="fa fa-language"></i> TOEIC 750 - July 20, 2022
-                    </li>
-
+                    {% for certificate in site.certifications %}
+                        <li>{{ certificate.name }}</li>
+                    {% endfor %}
                 </ul>
             </div>
 
             <!-- My Additional Experience -->
-            <div>
+            <div id="experience">
                 <h2 class="mb-4">Additional Experiences</h2>
-        
-                <ul>
-                    <li>
-                        Some of my interests and hobbies revolve around GitHub and open source community.<br/>
-                        A complete list of side/hobby projects: <a href="https://github.com/Nacriema">https://github.com/Nacriema</a>
-                    </li>
-                    <li>
-                        (Not so)Active member of developer communities
-        
-        
-                        <br/>
-                        Categories: <span class="badge text-body border border-1">Javascript</span> <span
-                        class="badge text-body border border-1">Angular</span> <span class="badge text-body border border-1">React</span> <span
-                        class="badge text-body border border-1">Typescript</span>
-                    </li>
-                </ul>
+                
+
+                <!-- TODO: Re design the structure here !!! -->
+                <div class="row d-block d-md-flex">
+                    <div class="col-md-2 pt-1">
+                        <h3 class="fs-4 fw-normal text-center">
+                            <small>Project Name</small>
+                        </h3>
+                    </div>
+                    <div class="col-md-10" id="experience">
+                        <div>Project Content ...</div>
+
+                    </div>
+                </div>
+                <br/>
+                    Categories: <span class="badge text-body border border-1">Javascript</span> <span
+                    class="badge text-body border border-1">Angular</span> <span class="badge text-body border border-1">React</span> <span
+                    class="badge text-body border border-1">Typescript</span>
             </div>
 
         </div>
