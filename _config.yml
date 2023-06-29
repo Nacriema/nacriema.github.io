@@ -168,9 +168,18 @@ certifications:
 
 # Additional experience
 additional:
-  - project: Container AI
-  - project: Aviso
-  - project: Virtual TikToker
+  - name: Container AI
+    description: XXXX
+  - name: Aviso
+    description: YYYY
+  - name: Virtual TikToker
+    description: ZZZZ
+
+# Categories for additional experirences
+category:
+  - name: Python
+  - name: Javascript
+  - name: React
 
 # exclude my node related stuff
 exclude: ["package.json", "src", "node_modules"]

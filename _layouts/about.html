@@ -82,10 +82,8 @@ layout: compress
                                     <small>{{ position.location }}</small>
                                 </h3>
                                 <p> {{ position.title }}</p>
-
                                 <!-- Reference - Parsing text to mardown html: https://stackoverflow.com/questions/62524875/jekyll-website-cannot-convert-markdown-and-liquid-to-html-properly-with-github -->
                                 <div>{{ position.contents | markdownify | liquify }}</div>
-
                                 <p>
                                     {% for skill in position.skills %}
                                         <span class="badge text-body border border-1">{{ skill }}</span>
@@ -118,24 +116,23 @@ layout: compress
             <!-- My Additional Experience -->
             <div id="experience">
                 <h2 class="mb-4">Additional Experiences</h2>
-                
-
-                <!-- TODO: Re design the structure here !!! -->
                 <div class="row d-block d-md-flex">
-                    <div class="col-md-2 pt-1">
-                        <h3 class="fs-4 fw-normal text-center">
-                            <small>Project Name</small>
-                        </h3>
-                    </div>
-                    <div class="col-md-10" id="experience">
-                        <div>Project Content ...</div>
-
-                    </div>
+                    {% for exp in site.additional %}
+                        <div class="col-md-2">
+                            <h3 class="fs-4 fw-normal text-align-top text-align-center">
+                                <small>{{ exp.name }}</small>
+                            </h3>
+                        </div>
+                        <div class="col-md-10" id="experience">
+                            <div>{{ exp.description }}</div>
+                        </div>
+                        <br/>
+                    {% endfor %}
                 </div>
-                <br/>
-                    Categories: <span class="badge text-body border border-1">Javascript</span> <span
-                    class="badge text-body border border-1">Angular</span> <span class="badge text-body border border-1">React</span> <span
-                    class="badge text-body border border-1">Typescript</span>
+                Categories:
+                {% for lang in site.category %}
+                    <span class="badge text-body border border-1">{{ lang.name }}</span> 
+                {% endfor %}
             </div>
 
         </div>
