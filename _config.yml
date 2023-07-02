@@ -111,15 +111,15 @@ positions:
     period: August 2022 - Present
     skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis']
     contents: "
-              * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system. [`Avanti R&D`]()
+              * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system. [`Avanti R&D`](https://www.avantirnd.com/)
 
-              * Developed the algorithm to interpret the new position of the lane dividers after the camera has changed a little bit. `Avanti R&D`
+              * Developed the algorithm to interpret the new position of the lane dividers after the camera has changed a little bit. [`Avanti R&D`](https://www.avantirnd.com/)
 
-              * Developed the algorithm to automatically control the PTZ camera to the predefined position (given the reference image). `Avanti R&D`
+              * Developed the algorithm to automatically control the PTZ camera to the predefined position (given the reference image). [`Avanti R&D`](https://www.avantirnd.com/)
 
-              * Developed the algorithm to automatically detect the lane dividers based on the vehicle trajectories on the roads. `Avanti R&D`
+              * Developed the algorithm to automatically detect the lane dividers based on the vehicle trajectories on the roads. [`Avanti R&D`](https://www.avantirnd.com/)
 
-              * Developed, tested, improved algorithms to the `FaceLog` system: Optimize streaming process. Fix bug for the recognition flow. Implement head pose estimation. Implement Face quality analysis. Add the antispoffing model. Allows `FaceLog` to use for automatic checkin checkout.
+              * Developed, tested, improved algorithms to the `FaceLog` system: Optimize streaming process. Fix bug for the recognition flow. Implement head pose estimation. Implement Face quality analysis. Add the antispoffing model. Allows `FaceLog` to use for automatic checkin checkout process in the company.
 
               * Designed and trained lightweight Age, Gender and Mask (`AGM`) prediction models that can run on smart phone devices.
 
@@ -130,9 +130,11 @@ positions:
     location: Danang, VN
     title: AI Engineer
     period: November 2021 - July 2022
-    skills: ['Pytorch', 'Python', 'MongoDB']
+    skills: ['Pytorch', 'Python', 'MongoDB', 'Unity']
     contents: "
-              * Contributed to `EVN-CPC` project: 
+              * Contributed to EVN-NPT PTC2 project: managed and processed database, designed web interface, built a system that can measure the proximity of trees onto powerlines using a single surveillance camera.
+
+              * Built an Unity application for Anatomy Research - XAP. 
     "
 
   - company: FTetch AI
@@ -150,21 +152,26 @@ positions:
     location: Danang, VN
     title: Software Engineer - Intern
     period: 
-    skills: ['SQL']
+    skills: ['SQL', 'Java', 'Algorithm']
     contents: "
-              * TODO: See my old job description to fullfill the remain parts
+              * Trained in programming with Java, learned SQL and applied them to build a simple sales website.
+
+              * Learning the Algorithms by solving several problems with the Codelearn.io platform.
     "
 
 # Education
-education: "Masters degree in Computer Science. Danang University of Technology [2016 – 2022]. GPA: 3.5"
+education: <i class="fa fa-graduation-cap"></i> Bachelor of Software Engineering. Danang University of Technology [2016 – 2022]. GPA 3.5
 
 # Achievements - Through Education and Professional Experience
-# TODO: Need to be fulfilled by me
+achievements:
+  - name: <i class="fa-solid fa-medal"></i> Second-Prize in the Code War Contest for all FPT Intern students organized by FPT Fresher Academy - Sep, 2019
+  - name: <i class="fa-solid fa-medal"></i> Participated in and Reached the final of the nationwide Student Code War contest organized by FPT - Oct, 2019
+  - name: <i class="fa-solid fa-medal"></i> Became the [Codelearn](https://codelearn.io/) contributor.
 
 # Certifications
 certifications:
   - name: <i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
-  - name: <i class="fa fa-language"></i> TOEIC 850 - July 20, 2022
+  - name: <i class="fa fa-language"></i> TOEIC 740 - July 20, 2022
 
 # Additional experience
 additional:
@@ -174,12 +181,15 @@ additional:
     description: YYYY
   - name: Virtual TikToker
     description: ZZZZ
+  - name: XAP
+    description: MMMM
 
 # Categories for additional experirences
 category:
   - name: Python
   - name: Javascript
   - name: React
+  - name: Unity
 
 # exclude my node related stuff
 exclude: ["package.json", "src", "node_modules"]

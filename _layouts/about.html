@@ -101,8 +101,9 @@ layout: compress
                 
                 <h2>Achievements</h2>
                 <ul class="mb-0">
-                    <li><i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
-                    </li>
+                    {% for achievement in site.achievements %}
+                        <li>{{ achievement.name }}</li>
+                    {% endfor %} 
                 </ul>
 
                 <h2>Certifications</h2>
@@ -115,7 +116,7 @@ layout: compress
 
             <!-- My Additional Experience -->
             <div id="experience">
-                <h2 class="mb-4">Additional Experiences</h2>
+                <h2 class="mb-4">Additional Experience</h2>
                 <div class="row d-block d-md-flex">
                     {% for exp in site.additional %}
                         <div class="col-md-2">
