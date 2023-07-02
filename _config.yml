@@ -164,8 +164,8 @@ education: <i class="fa fa-graduation-cap"></i> Bachelor of Software Engineering
 
 # Achievements - Through Education and Professional Experience
 achievements:
-  - name: <i class="fa-solid fa-medal"></i> Second-Prize in the Code War Contest for all FPT Intern students organized by FPT Fresher Academy - Sep, 2019
-  - name: <i class="fa-solid fa-medal"></i> Participated in and Reached the final of the nationwide Student Code War contest organized by FPT - Oct, 2019
+  - name: <i class="fas fa-trophy"></i> Second-Prize in the Code War Contest for all FPT Intern students organized by FPT Fresher Academy - Sep, 2019
+  - name: <i class="fa-solid fa-ranking-star"></i> Participated in and Reached the final of the nationwide Student Code War contest organized by FPT - Oct, 2019
   - name: <i class="fa-solid fa-medal"></i> Became the [Codelearn](https://codelearn.io/) contributor.
 
 # Certifications
