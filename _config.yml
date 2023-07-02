@@ -151,7 +151,7 @@ positions:
   - company: FPT Software
     location: Danang, VN
     title: Software Engineer - Intern
-    period: 
+    period: July 2019 - October 2019
     skills: ['SQL', 'Java', 'Algorithm']
     contents: "
               * Trained in programming with Java, learned SQL and applied them to build a simple sales website.
@@ -190,6 +190,7 @@ category:
   - name: Javascript
   - name: React
   - name: Unity
+  - name: Docker
 
 # exclude my node related stuff
 exclude: ["package.json", "src", "node_modules"]
