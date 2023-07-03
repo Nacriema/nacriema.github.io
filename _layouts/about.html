@@ -125,8 +125,9 @@ layout: compress
                             </h3>
                         </div>
                         <div class="col-md-10" id="experience">
-                            <div>{{ exp.description }}</div>
+                            <div>{{ exp.description | markdownify | liquify }}</div>
                         </div>
+                        <br/>
                         <br/>
                     {% endfor %}
                 </div>

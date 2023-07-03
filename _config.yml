@@ -176,13 +176,21 @@ certifications:
 # Additional experience
 additional:
   - name: Container AI
-    description: XXXX
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;Developing a system that can track customer's behaviour inside a container gorcery store, included: person falling detection, item dropping detection, suspicious buying session. This system can log the evidence videos for suspicious session and push them onto Google Drive, alert the person falling and item dropped real time via Telegram. I've worked for Poland customer. 
+    "
   - name: Aviso
-    description: YYYY
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;Developing a Selenium's based system for automatically doing task every day to make money from that site. My contribution is developed a hCaptcha solver that can automatically click and solve the hCaptcha question by using OpenAI CLIP model.
+    "
   - name: Virtual TikToker
-    description: ZZZZ
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;Developing a virtual tiktoker that can automate get the latest trend from TikTok, generate the content videos and push them back to TikTok. Our target is to get as much as possible the number of follower. My contribution is develop the video content maker automatically using Computer Vision techniques and Machine Learning Algorithms.
+    "
   - name: XAP
-    description: MMMM
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;Developed an application that user can learn, interact with 3D human organs, improve user's learning experience by given them ability to interact with 3D objects as well as the ability of meeting with the others during the learning session.
+    "
 
 # Categories for additional experirences
 category:
