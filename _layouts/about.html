@@ -18,7 +18,7 @@ layout: compress
                         <div>
                             <p>
                                 <!-- TODO: Make the update time dynamic -->
-                                <time datetime="{{ buildinfo.date }}" class="small">Last update: October 13, 2023 </time>
+                                <time datetime="{{ buildinfo.date }}" class="small">Last update: {{ site.last_update }} </time>
                             </p>
                             <p>
                                 <span class="screen"><a onclick="generatePDF()"><i class="far fa-file-pdf"></i>Download PDF version</a></span>
