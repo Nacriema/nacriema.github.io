@@ -127,7 +127,7 @@ positions:
 
               * Contribued to the Facebook's crawler tool: get user infomation from the given facebook profile link.
 
-              * Currently: Applying OpenAI to the automation process tasks related to emails. [`Qualitia`](https://www.qualitia.com/sg/)
+              * Applied OpenAI to the automation process tasks related to emails. [`Qualitia`](https://www.qualitia.com/sg/)
     "
 
   - company: Freelancer
@@ -181,7 +181,7 @@ certifications:
 additional:
   - name: Container AI
     description: "
-      &nbsp;&nbsp;&nbsp;&nbsp;Developing a system that can track customer's behaviour inside a container gorcery store, included: person falling detection, item dropping detection, suspicious buying session. This system can log the evidence videos for suspicious session and push them onto Google Drive, alert the person falling and item dropped real time via Telegram. I've worked for Poland customer. 
+      &nbsp;&nbsp;&nbsp;&nbsp;Developing a system that can track customer's behaviour inside a container gorcery store, included: person falling detection, item dropping detection, suspicious buying session. This system can log the evidence videos for suspicious session and push them onto Google Drive, alert the person falling and item dropped real time via Telegram. I've worked for Poland customer. Update: Our team has won the 1st phase, preparing to do the 2nd phase - improve models and use AWS instead of Google Drive.
     "
   - name: Aviso
     description: "
