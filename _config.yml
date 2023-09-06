@@ -111,25 +111,26 @@ positions:
     location: Danang, VN
     title: AI Engineer
     period: August 2022 - Present
-    skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis']
+    skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis', 'C++']
     contents: "
-              * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system. [`Avanti R&D`](https://www.avantirnd.com/)
+                * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system.
 
-              * Developed the algorithm to interpret the new position of the lane dividers after the camera has changed a little bit. [`Avanti R&D`](https://www.avantirnd.com/)
+                * Developed the algorithm to interpret the new position of the lane dividers after the camera has changed a little bit.
 
-              * Developed the algorithm to automatically control the PTZ camera to the predefined position (given the reference image). [`Avanti R&D`](https://www.avantirnd.com/)
+                * Developed the algorithm to automatically control the PTZ camera to the predefined position (given the reference image).
 
-              * Developed the algorithm to automatically detect the lane dividers based on the vehicle trajectories on the roads. [`Avanti R&D`](https://www.avantirnd.com/)
+                * Developed the algorithm to automatically detect the lane dividers based on the vehicle trajectories on the roads.
 
-              * Developed, tested, improved algorithms to the `FaceLog` system: Optimize streaming process. Fix bug for the recognition flow. Implement head pose estimation. Implement Face quality analysis. Add the antispoffing model. Allows `FaceLog` to use for automatic checkin checkout process in the company.
+                * Developed, tested, improved algorithms to the `FaceLog` system: Optimize streaming process. Fix bug for the recognition flow. Implement head pose estimation. Implement Face quality analysis. Add the antispoffing model. Allows `FaceLog` to use for automatic checkin checkout process in the company.
 
-              * Designed and trained lightweight Age, Gender and Mask - `AGM` prediction models that can run on smart phone devices.
+                * Designed and trained lightweight Age, Gender and Mask - prediction models that can run on smart phone devices.
 
-              * Contribued to the Facebook's crawler tool: get user infomation from the given facebook profile link.
+                * Contribued to the Facebook's crawler tool: get user infomation from the given facebook profile link.
 
-              * Applied OpenAI to the automation process tasks related to emails. [`Qualitia`](https://www.qualitia.com/sg/)
-    "
+                * Applied OpenAI to the automation process tasks related to emails. 
 
+                * Implementing components in C++ that AI models can run on varied platforms.
+              "
   - company: Freelancer
     location: Danang, VN
     title: AI Engineer
