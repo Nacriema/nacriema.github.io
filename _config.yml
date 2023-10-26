@@ -111,7 +111,7 @@ positions:
     location: Danang, VN
     title: AI Engineer
     period: August 2022 - Present
-    skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis', 'C++']
+    skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis', 'C++', 'DeepStream']
     contents: "
                 * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system.
 
@@ -129,7 +129,7 @@ positions:
 
                 * Applied OpenAI to the automation process tasks related to emails. 
 
-                * Implementing components in C++ that AI models can run on varied platforms.
+                * Build shared libraries in C++ that AI models can run on varied platforms, especially on edge devices.
               "
   - company: Freelancer
     location: Danang, VN
