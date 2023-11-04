@@ -90,7 +90,7 @@ facts:
   - name: Email
     value: '<a href="mailto:huytruong2931998@gmail.com"><i class="fa fa-envelope fact-icon"></i>huytruong2931998@gmail.com</a>'
 
-last_update: "Sep 26, 2023" 
+last_update: "Nov 04, 2023" 
 
 
 # Skills section for the About CV
@@ -111,7 +111,7 @@ positions:
     location: Danang, VN
     title: AI Engineer
     period: August 2022 - Present
-    skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis', 'C++', 'DeepStream']
+    skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis', 'C++', 'DeepStream', 'GStreamer']
     contents: "
                 * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system.
 
@@ -196,12 +196,18 @@ additional:
     description: "
       &nbsp;&nbsp;&nbsp;&nbsp;Developed an application that user can learn, interact with 3D human organs, improve user's learning experience by given them ability to interact with 3D objects as well as the ability of meeting with the others during the learning session.
     "
+  - name: IOC
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;Develop a front-end web user interface utilizing Angular, based on the original source code which was written in Vue. This will allow administrative users to monitor, coordinate, and process notifications from multiple IoT resources located in Danang City.
+    "
 
 # Categories for additional experirences
 category:
   - name: Python
   - name: Javascript
   - name: React
+  - name: Angular
+  - name: Vue
   - name: Unity
   - name: Docker
 
