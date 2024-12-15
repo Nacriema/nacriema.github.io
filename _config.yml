@@ -90,7 +90,7 @@ facts:
   - name: Email
     value: '<a href="mailto:huytruong2931998@gmail.com"><i class="fa fa-envelope fact-icon"></i>huytruong2931998@gmail.com</a>'
 
-last_update: "Jan 5th, 2024" 
+last_update: "Dec 15th, 2024" 
 
 
 # Skills section for the About CV
@@ -100,9 +100,17 @@ skills:
   - name: French
     value: 75
 
+# NOTE: Update technical skill part
+# Programming Languages: Python, C++, Java, JavaScript
+# Frameworks & Libraries: PyTorch, TensorFlow, ONNX, OpenCV
+# DevOps: Docker, Redis, DeepStream, GStreamer
+# Web Development: Angular, React, Vue
+# Other Tools: Selenium, MongoDB, Unity
+# Languages: English (fluent), French (intermediate - DELF B1)
+
 # Introduction
 introduction: "
-              As an experienced machine learning engineer with a strong background in computer science and mathematics, I am skilled in developing and implementing machine learning algorithms that drive business value. I have expertise in various machine learning techniques, including deep learning and computer vision.
+              As an experienced AI Engineer with a strong background in computer science and mathematics, I specialize in developing and implementing machine learning algorithms that deliver measurable business value. With expertise in deep learning, computer vision, and AI model optimization, I excel at designing solutions for complex challenges across diverse industries.
 "
 
 # Working expericences
@@ -111,35 +119,37 @@ positions:
     location: Danang, VN
     title: AI Engineer
     period: August 2022 - Present
-    skills: ['Python', 'Pytorch', 'ONNX', 'OpenCV', 'Docker', 'Redis', 'C++', 'DeepStream', 'GStreamer']
+    skills: ['Python', 'PyTorch', 'ONNX', 'OpenCV', 'Docker', 'Redis', 'C++', 'DeepStream', 'GStreamer', 'Scikitlearn', 'LightGBM']
     contents: "
-                * Developed the driver for controlling the PTZ ONVIF Camera based, applied to surveillance camera monitor system.
+                * Developed PTZ ONVIF camera control drivers for surveillance systems.
 
-                * Developed the algorithm to interpret the new position of the lane dividers after the camera has changed a little bit.
+                * Created algorithms to interpret lane divider positions after camera adjustments.
 
-                * Developed the algorithm to automatically control the PTZ camera to the predefined position (given the reference image).
+                * Designed and implemented automatic PTZ camera control using reference images.
 
-                * Developed the algorithm to automatically detect the lane dividers based on the vehicle trajectories on the roads.
+                * Built algorithms to detect lane dividers based on vehicle trajectories.
 
-                * Developed, tested, improved algorithms to the `FaceLog` system: Optimize streaming process. Fix bug for the recognition flow. Implement head pose estimation. Implement Face quality analysis. Add the antispoffing model. Allows `FaceLog` to use for automatic checkin checkout process in the company.
+                * Enhanced the FaceLog system with features such as head pose estimation, face quality analysis, anti-spoofing models, and optimization of streaming processes.
 
-                * Designed and trained lightweight Age, Gender and Mask - prediction models that can run on smart phone devices.
+                * Trained lightweight Age, Gender, and Mask prediction models optimized for smartphones.
 
-                * Contribued to the Facebook's crawler tool: get user infomation from the given facebook profile link.
+                * Contributed to Facebook’s crawler tool to extract user information.
 
-                * Applied OpenAI to the automation process tasks related to emails. 
+                * Automated email-related tasks using OpenAI APIs.
 
-                * Build shared libraries in C++ that AI models can run on varied platforms, especially on edge devices.
+                * Built C++ shared libraries to enable AI models to run on edge devices.
+
+                * Completed a six-month onsite project to develop a system for measuring the default probability of applications in the fintech domain, achieving an AUC of 0.8.
               "
   - company: Freelancer
     location: Danang, VN
     title: AI Engineer
     period: November 2021 - July 2022
-    skills: ['Pytorch', 'Python', 'MongoDB', 'Unity']
+    skills: ['Python', 'PyTorch', 'MongoDB', 'Unity']
     contents: "
-              * Contributed to EVN-NPT PTC2 project: managed and processed database, designed web interface, built a system that can measure the proximity of trees onto powerlines using a single surveillance camera.
+              * Contributed to the EVN-NPT PTC2 project by designing a system to measure tree proximity to powerlines using surveillance cameras.
 
-              * Built an Unity application for Anatomy Research - XAP. 
+              * Developed a Unity-based anatomy research application (XAP). 
     "
 
   - company: FTetch AI
@@ -148,20 +158,22 @@ positions:
     period: June 2020 - April 2021
     skills: ['Pytorch', 'Tensorflow', 'OpenCV']
     contents: "
-              * Trainee process in 5 months: Understand the algorithms that frequently used in Computer vision and re implement it. Joined to develop the AI tools that used to inspect the learning process of the model by visualization techniques
-              
-              * Joined in the production team: `Documentation Analysis` - developed the segmentation, applied the synthetic training data augmentation to improve the performance of the model.
+              * Re-implemented computer vision algorithms as part of a five-month training program.
+
+              * Developed tools to visualize AI model learning processes.
+
+              * Improved segmentation models using synthetic data augmentation.
     "
 
   - company: FPT Software
     location: Danang, VN
     title: Software Engineer - Intern
     period: July 2019 - October 2019
-    skills: ['SQL', 'Java', 'Algorithm']
+    skills: ['SQL', 'Java']
     contents: "
-              * Trained in programming with Java, learned SQL and applied them to build a simple sales website.
+              * Developed a sales website using Java and SQL.
 
-              * Learning the Algorithms by solving several problems with the Codelearn.io platform.
+              * Enhanced algorithmic problem-solving skills using the Codelearn.io platform.
     "
 
 # Education
@@ -169,36 +181,41 @@ education: <i class="fa fa-graduation-cap"></i> Bachelor of Software Engineering
 
 # Achievements - Through Education and Professional Experience
 achievements:
-  - name: <i class="fas fa-trophy"></i> Second-Prize in the Code War Contest for all FPT Intern students organized by FPT Fresher Academy - Sep, 2019
-  - name: <i class="fa-solid fa-ranking-star"></i> Participated in and Reached the final of the nationwide Student Code War contest organized by FPT - Oct, 2019
-  - name: <i class="fa-solid fa-medal"></i> Became the [Codelearn](https://codelearn.io/) contributor.
+  - name: <i class="fas fa-trophy"></i> <b>Second Prize:</b> Code War Contest for FPT interns – September 2019
+  - name: <i class="fa-solid fa-ranking-star"></i> <b>Finalist:</b> National Student Code War Contest – October 2019
+  - name: <i class="fa-solid fa-medal"></i> Contributor to <a href="https://codelearn.io/">Codelearn.io</a>
 
 # Certifications
 certifications:
-  - name: <i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - Dec 02, 2019
-  - name: <i class="fa fa-language"></i> TOEIC 740 - July 20, 2022
+  - name: <i class="fas fa-spell-check"></i> Diplôme d'études en langue française delf B1 - December 2019
+  - name: <i class="fa fa-language"></i> TOEIC 740 - July 2022
 
 # Additional experience
+# TODO: Give it another name like: Selected Projects
 additional:
   - name: Container AI
     description: "
-      &nbsp;&nbsp;&nbsp;&nbsp;Developing a system that can track customer's behaviour inside a container gorcery store, included: person falling detection, item dropping detection, suspicious buying session. This system can log the evidence videos for suspicious session and push them onto Google Drive, alert the person falling and item dropped real time via Telegram. I've worked for Poland customer. Update: Our team has won the 1st phase, preparing to do the 2nd phase - improve models and use AWS instead of Google Drive.
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Developed a system to monitor customer behavior in container grocery stores, including features like person-fall detection, item-dropping detection, and suspicious session logging.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Integrated real-time alerts via Telegram and evidence video uploads to Google Drive.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Transitioned system infrastructure to AWS for improved scalability.
     "
   - name: Aviso
     description: "
-      &nbsp;&nbsp;&nbsp;&nbsp;Developing a Selenium's based system for automatically doing task every day to make money from that site. My contribution is developed a hCaptcha solver that can automatically click and solve the hCaptcha question by using OpenAI CLIP model.
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Built a Selenium-based automation system to perform daily tasks on an online platform.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Developed an OpenAI CLIP-based hCaptcha solver for automated CAPTCHA handling.
     "
   - name: Virtual TikToker
     description: "
-      &nbsp;&nbsp;&nbsp;&nbsp;Developing a virtual tiktoker that can automate get the latest trend from TikTok, generate the content videos and push them back to TikTok. Our target is to get as much as possible the number of follower. My contribution is develop the video content maker automatically using Computer Vision techniques and Machine Learning Algorithms.
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Automated content creation and publication on TikTok, targeting viral trends to grow followers.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Designed video generation algorithms using computer vision and machine learning techniques.
     "
   - name: XAP
     description: "
-      &nbsp;&nbsp;&nbsp;&nbsp;Developed an application that user can learn, interact with 3D human organs, improve user's learning experience by given them ability to interact with 3D objects as well as the ability of meeting with the others during the learning session.
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Created an interactive 3D anatomy learning application with real-time collaboration capabilities.
     "
   - name: IOC
     description: "
-      &nbsp;&nbsp;&nbsp;&nbsp;Develop a front-end web user interface utilizing Angular, based on the original source code which was written in Vue. This will allow administrative users to monitor, coordinate, and process notifications from multiple IoT resources located in Danang City.
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Migrated a Vue-based IoT resource monitoring interface to Angular, enabling streamlined notifications and coordination for Danang City.
     "
 
 # Categories for additional experirences
