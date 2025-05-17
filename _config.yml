@@ -195,14 +195,50 @@ certifications:
 additional:
   - name: Container AI
     description: "
-      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Developed a system to monitor customer behavior in container grocery stores, including features like person-fall detection, item-dropping detection, and suspicious session logging.<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Integrated real-time alerts via Telegram and evidence video uploads to Google Drive.<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Transitioned system infrastructure to AWS for improved scalability.
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Designed and deployed a computer vision system for monitoring customer behavior in autonomous grocery stores, featuring person-fall detection, item-dropping detection, and suspicious activity logging.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Implemented real-time alerting via Telegram and automated video evidence upload to Google Drive.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Migrated infrastructure to AWS (EC2, S3, Lambda) to enhance scalability and reliability.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;**Tech Stack:** Python, OpenCV, Pytorch, AWS (EC2, S3, Lambda), Google Drive API, Telegram Bot API, Docker.
+    "
+  - name: ChaterBot
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Built an automated content generation and posting bot using n8n, enabling users to query the bot for real-time market and social media insights.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Leveraged n8n’s agent capabilities to integrate and aggregate data from multiple sources including X (formerly Twitter), market APIs, and LLMs.<br>  
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Implemented pipelines that crawl trending posts, use ChatGPT to generate responses or original tweets, and automatically post content.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Developed features to fetch top cryptocurrencies by market cap and generate corresponding tweet content.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;**Demo:** [quangthinh.io](https://www.quangthinh.io/)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;**Tech Stack:** n8n, OpenAI (ChatGPT), X/Twitter API, CoinGecko/CoinMarketCap API, JavaScript, Webhooks, REST APIs.<br>
+    "
+  - name: OpenDrawing
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Developed a vision-based automation pipeline to support wire drawing processes by detecting and tracing lines from raw material images.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Implemented line detection and tracing algorithms to identify and connect structural components in engineering drawings.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Enabled automated recognition of drawing components to facilitate digital interpretation and downstream processing.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;**Demo:** [opendrawing.ai](https://opendrawing.ai/)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;**Tech Stack:** Python, OpenCV, Scikit-image, Custom Line Tracing Algorithms, NumPy, Computer Vision.
+    "
+  - name: XOCR
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Built an automated system to extract tweet content from scrolling screen recordings on X (formerly Twitter).<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Designed a visual pipeline that detects dynamic tweet regions, stitches frames into a full screen map, and segments individual tweets.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Applied OCR techniques to extract structured information from tweet snapshots, enabling downstream analysis or automation.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Optimized tweet detection using movement-based region extraction and image processing heuristics.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;**Tech Stack:** Python, OpenCV, Image Stitching, Tesseract OCR, NumPy, Scikit-image, Computer Vision.
+    "
+  - name: SwingSense
+    description: "
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Developed a computer vision system to analyze bat swing motion in sports scenarios using video input.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Implemented bat tracking algorithms to detect and follow the start and end points of the bat during a swing shot.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Built a ball detection pipeline that identifies seam patterns and analyzes rotational behavior during flight.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Enabled extraction of key biomechanical metrics such as swing angle, timing, and spin analysis for coaching insights or performance diagnostics.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;**Demo:** [ls.latentia.ai](https://ls.latentia.ai/)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;<b>Tech Stack:</b> Python, OpenCV, Computer Vision, Pose Estimation, Object Detection (YOLO), Image Segmentation, Optical Flow, Rotation Estimation.
     "
   - name: Aviso
     description: "
       &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Built a Selenium-based automation system to perform daily tasks on an online platform.<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Developed an OpenAI CLIP-based hCaptcha solver for automated CAPTCHA handling.
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Developed an OpenAI CLIP-powered module to automatically solve hCaptchas.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;**Tech Stack:** Python, Selenium, OpenAI CLIP, PyTorch.<br>
     "
   - name: Virtual TikToker
     description: "
