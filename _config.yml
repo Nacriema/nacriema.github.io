@@ -55,6 +55,9 @@ links:
     - title: about me
       url: /about
       key_trigger: 5
+    - title: leverage calc
+      url: /leverage
+      key_trigger: 6
   section_2:
     - title: github
       url: https://github.com/Nacriema
@@ -67,6 +70,8 @@ links:
 
 # projects in header index
 projects:
+  - name: Leverage Calculator
+    url: /leverage/
   - name: Loss Functions for Semantic Segmentation
     url: https://github.com/Nacriema/Loss-Functions-For-Semantic-Segmentation
   - name: Neural Network Interpretation

@@ -1,0 +1,734 @@
+---
+layout: page
+title: "Leverage Calculator"
+permalink: /leverage/index.html
+description: "R:R leverage and volume calculator"
+---
+
+<section class="leverage-calc" id="leverage-root">
+  <div class="market-backdrop" aria-hidden="true">
+    <div class="market-grid"></div>
+    <canvas id="mini-chart" class="mini-chart"></canvas>
+    <div id="candle-field" class="candle-field"></div>
+  </div>
+
+  <div class="calc-shell">
+    <div class="calc-hero">
+      <p class="calc-eyebrow">Trading Utility</p>
+      <h2 class="calc-title">R:R Leverage Calculator</h2>
+      <p class="calc-subtitle">Estimate leverage and notional volume from your risk model in seconds.</p>
+      <label class="effects-toggle" for="effects-enabled">
+        <input id="effects-enabled" type="checkbox" checked />
+        <span>Enable Visual Effects (candles + realtime chart)</span>
+      </label>
+    </div>
+
+    <div class="calc-guide">
+      <h2>How To Use</h2>
+      <ol>
+        <li>Enter <strong>1R amount (USD)</strong>: the dollar amount you define as 1R.</li>
+        <li>Enter <strong>SL as % of 1R</strong>: for example, 40 means you use 40% of 1R as stop-loss.</li>
+        <li>Enter <strong>Percent from Entry to SL</strong>: the percentage distance from entry price to stop-loss (for example, 1.39).</li>
+        <li>Click <strong>Calculate</strong> to view all derived values.</li>
+      </ol>
+      <p class="calc-guide-note">
+        Formula: 100% SL (real USD) = 1R * 100 / SL%; Leverage = SL% / Entry-to-SL%; Volume = 100% SL * Leverage.
+      </p>
+      <p class="calc-guide-note">
+        Note: <strong>1R amount</strong> and <strong>SL as % of 1R</strong> are stored in your browser for next time.
+      </p>
+    </div>
+
+    <div class="calc-grid">
+      <div class="calc-card">
+        <h2>Inputs</h2>
+
+        <label for="r-usd">1R Amount (USD)</label>
+        <input id="r-usd" type="number" min="0" step="any" value="100" />
+
+        <label for="sl-pct">SL As % Of 1R (e.g. 40)</label>
+        <input id="sl-pct" type="number" min="0" step="any" value="40" />
+
+        <label for="entry-to-sl-pct">Percent From Entry To SL (e.g. 1.39)</label>
+        <input id="entry-to-sl-pct" type="number" min="0" step="any" value="0" />
+
+        <button id="btn-calc" type="button">Calculate</button>
+      </div>
+
+      <div class="calc-card" id="results-card">
+        <h2>Results</h2>
+
+        <div class="result-row">
+          <span>100% SL (Real USD)</span>
+          <strong id="out-real-stop">N/A</strong>
+        </div>
+
+        <div class="result-row">
+          <span>Percent from Entry to SL</span>
+          <strong id="out-entry-sl">N/A</strong>
+        </div>
+
+        <div class="result-metrics">
+          <div class="metric-box">
+            <small>Leverage</small>
+            <strong id="out-leverage">N/A</strong>
+          </div>
+          <div class="metric-box">
+            <small>Volume (notional)</small>
+            <strong id="out-volume">N/A</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #ecf6ff 0%, #e2f0fa 48%, #d8e9f6 100%);
+  }
+
+  .page-header {
+    width: min(1500px, calc(100vw - 14px));
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 8px 0 26px;
+    box-sizing: border-box;
+  }
+
+  footer {
+    margin-top: auto;
+  }
+
+  .leverage-calc {
+    position: relative;
+    overflow: hidden;
+    max-width: none;
+    width: min(1500px, calc(100vw - 14px));
+    margin: 0 auto 16px;
+    padding: 18px;
+    border-radius: 18px;
+    background: radial-gradient(circle at 15% 20%, rgba(214, 235, 251, 0.96), rgba(194, 223, 242, 0.94) 55%, rgba(177, 210, 233, 0.9) 100%);
+    border: 1px solid rgba(111, 145, 173, 0.28);
+    box-shadow: 0 14px 38px rgba(41, 82, 110, 0.2);
+    color: #18374d;
+  }
+
+  .calc-shell {
+    position: relative;
+    z-index: 2;
+  }
+
+  .market-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .market-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(64, 94, 116, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(64, 94, 116, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.84));
+  }
+
+  .mini-chart {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.33;
+  }
+
+  .candle-field {
+    position: absolute;
+    inset: 0;
+  }
+
+  .candle {
+    position: absolute;
+    bottom: -130px;
+    width: 10px;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: candle-rise var(--rise-duration, 3.2s) ease-out forwards;
+  }
+
+  .candle-wick {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: var(--wick-height, 58px);
+    top: calc(-1 * var(--wick-height, 58px) * 0.12);
+    opacity: 0.9;
+  }
+
+  .candle-body {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: var(--body-height, 26px);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.14);
+  }
+
+  .candle.bull .candle-body,
+  .candle.bull .candle-wick {
+    background: linear-gradient(180deg, rgba(42, 168, 97, 0.95), rgba(32, 134, 89, 0.9));
+  }
+
+  .candle.bear .candle-body,
+  .candle.bear .candle-wick {
+    background: linear-gradient(180deg, rgba(220, 84, 112, 0.95), rgba(185, 57, 92, 0.9));
+  }
+
+  @keyframes candle-rise {
+    0% {
+      transform: translate(-50%, 36px) scale(0.92);
+      opacity: 0;
+    }
+    16% {
+      opacity: 0.38;
+    }
+    45% {
+      opacity: 0.34;
+    }
+    100% {
+      transform: translate(-50%, -420px) scale(1.03);
+      opacity: 0;
+    }
+  }
+
+  .calc-hero {
+    margin: 4px 0 18px;
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(111, 151, 181, 0.38);
+    background: linear-gradient(130deg, rgba(246, 252, 255, 0.9), rgba(227, 241, 251, 0.74));
+    box-shadow: 0 10px 24px rgba(51, 93, 124, 0.16);
+    backdrop-filter: blur(3px);
+  }
+
+  .calc-eyebrow {
+    margin: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    color: #3f6179;
+    opacity: 0.92;
+  }
+
+  .calc-title {
+    margin: 6px 0 8px;
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .calc-subtitle {
+    margin: 0;
+    color: #29485f;
+    opacity: 0.95;
+  }
+
+  .effects-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(111, 151, 181, 0.4);
+    background: rgba(255, 255, 255, 0.56);
+    font-size: 0.9rem;
+    color: #2f556f;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .effects-toggle input {
+    margin: 0;
+    accent-color: #2ea477;
+  }
+
+  .calc-guide {
+    border: 1px solid rgba(111, 151, 181, 0.32);
+    border-radius: 12px;
+    padding: 18px;
+    background: radial-gradient(circle at top right, rgba(248, 237, 212, 0.58), rgba(241, 250, 255, 0.86));
+    margin-bottom: 18px;
+    backdrop-filter: blur(2px);
+  }
+
+  .calc-guide h2 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+  }
+
+  .calc-guide ol {
+    margin: 0 0 10px 20px;
+    padding: 0;
+  }
+
+  .calc-guide li {
+    margin-bottom: 6px;
+  }
+
+  .calc-guide-note {
+    margin: 8px 0 0;
+    color: #365770;
+    opacity: 0.98;
+    line-height: 1.5;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+  }
+
+  .calc-card {
+    border: 1px solid rgba(111, 151, 181, 0.35);
+    border-radius: 12px;
+    padding: 18px;
+    background: rgba(246, 252, 255, 0.86);
+    box-shadow: 0 10px 24px rgba(72, 110, 138, 0.16);
+    backdrop-filter: blur(4px);
+  }
+
+  .calc-card.flash {
+    animation: card-flash 480ms ease;
+  }
+
+  @keyframes card-flash {
+    0% {
+      box-shadow: 0 0 0 rgba(73, 214, 160, 0);
+    }
+    45% {
+      box-shadow: 0 0 28px rgba(72, 185, 143, 0.26);
+    }
+    100% {
+      box-shadow: 0 10px 24px rgba(72, 110, 138, 0.16);
+    }
+  }
+
+  .calc-card h2 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+  }
+
+  .calc-card label {
+    display: block;
+    font-size: 0.95rem;
+    margin: 10px 0 6px;
+  }
+
+  .calc-card input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(122, 156, 183, 0.38);
+    padding: 11px 12px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #1d3b50;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .calc-card input:focus {
+    outline: none;
+    border-color: rgba(46, 164, 119, 0.7);
+    box-shadow: 0 0 0 3px rgba(46, 164, 119, 0.16);
+  }
+
+  #btn-calc {
+    margin-top: 14px;
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 12px;
+    background: linear-gradient(120deg, #43c492, #78e8da);
+    color: #0f1b14;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  #btn-calc:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(73, 214, 160, 0.25);
+  }
+
+  .result-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 0;
+  }
+
+  .result-metrics {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .metric-box {
+    border: 1px solid rgba(122, 156, 183, 0.36);
+    border-radius: 8px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .metric-box small {
+    display: block;
+    margin-bottom: 6px;
+    opacity: 0.92;
+    color: #3d6078;
+  }
+
+  .metric-box strong {
+    font-size: 1.2rem;
+  }
+
+  .effects-off .mini-chart,
+  .effects-off .candle-field {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    .leverage-calc {
+      width: calc(100vw - 10px);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .calc-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .calc-title {
+      font-size: 1.5rem;
+    }
+
+    .result-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .effects-toggle {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var STORAGE_KEY = 'rr-calculator-config';
+    var EFFECTS_KEY = 'rr-effects-enabled';
+
+    var rUsdEl = document.getElementById('r-usd');
+    var slPctEl = document.getElementById('sl-pct');
+    var entryToSlEl = document.getElementById('entry-to-sl-pct');
+    var btnCalc = document.getElementById('btn-calc');
+    var effectsToggle = document.getElementById('effects-enabled');
+
+    var outRealStop = document.getElementById('out-real-stop');
+    var outEntrySl = document.getElementById('out-entry-sl');
+    var outLeverage = document.getElementById('out-leverage');
+    var outVolume = document.getElementById('out-volume');
+    var candleField = document.getElementById('candle-field');
+    var miniChart = document.getElementById('mini-chart');
+    var resultsCard = document.getElementById('results-card');
+    var root = document.getElementById('leverage-root');
+
+    var effectsEnabled = true;
+    var previousLeverage = null;
+    var lastTrend = 'bull';
+
+    var chartCtx = null;
+    var chartRAF = null;
+    var chartPoints = [];
+    var chartBaseline = 0.5;
+
+    function parseNum(value) {
+      var n = Number(value);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(value);
+    }
+
+    function saveDefaults() {
+      var payload = {
+        default_r_usd: parseNum(rUsdEl.value),
+        default_sl_pct: parseNum(slPctEl.value),
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    }
+
+    function loadDefaults() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        var cfg = JSON.parse(raw);
+        if (cfg && typeof cfg === 'object') {
+          if (cfg.default_r_usd !== undefined) rUsdEl.value = cfg.default_r_usd;
+          if (cfg.default_sl_pct !== undefined) slPctEl.value = cfg.default_sl_pct;
+        }
+      } catch (err) {
+        console.warn('Cannot load rr config:', err);
+      }
+    }
+
+    function saveEffectsConfig(enabled) {
+      localStorage.setItem(EFFECTS_KEY, enabled ? '1' : '0');
+    }
+
+    function loadEffectsConfig() {
+      var saved = localStorage.getItem(EFFECTS_KEY);
+      if (saved === '1' || saved === '0') {
+        return saved === '1';
+      }
+
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var isNarrow = window.matchMedia('(max-width: 800px)').matches;
+      return !(prefersReduced || isNarrow);
+    }
+
+    function stopChart() {
+      if (chartRAF) {
+        cancelAnimationFrame(chartRAF);
+        chartRAF = null;
+      }
+    }
+
+    function resizeChart() {
+      if (!miniChart || !root || !chartCtx) return;
+      var dpr = window.devicePixelRatio || 1;
+      var rect = root.getBoundingClientRect();
+      miniChart.width = Math.max(1, Math.floor(rect.width * dpr));
+      miniChart.height = Math.max(1, Math.floor(rect.height * dpr));
+      miniChart.style.width = rect.width + 'px';
+      miniChart.style.height = rect.height + 'px';
+      chartCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function initChart() {
+      if (!miniChart) return;
+      chartCtx = miniChart.getContext('2d');
+      chartPoints = [];
+      for (var i = 0; i < 90; i++) {
+        chartPoints.push(0.42 + Math.sin(i * 0.14) * 0.05 + Math.random() * 0.02);
+      }
+      resizeChart();
+    }
+
+    function tickChart() {
+      if (!effectsEnabled || !chartCtx || !miniChart || !root) return;
+
+      var w = root.clientWidth;
+      var h = root.clientHeight;
+      if (!w || !h) return;
+
+      chartBaseline += (lastTrend === 'bull' ? 0.0022 : -0.0022);
+      if (chartBaseline < 0.2) chartBaseline = 0.2;
+      if (chartBaseline > 0.82) chartBaseline = 0.82;
+
+      var noise = (Math.random() - 0.5) * 0.025;
+      var next = chartPoints[chartPoints.length - 1] + noise + (chartBaseline - chartPoints[chartPoints.length - 1]) * 0.11;
+      if (next < 0.06) next = 0.06;
+      if (next > 0.95) next = 0.95;
+
+      chartPoints.push(next);
+      if (chartPoints.length > 120) chartPoints.shift();
+
+      chartCtx.clearRect(0, 0, w, h);
+
+      var grad = chartCtx.createLinearGradient(0, 0, 0, h);
+      grad.addColorStop(0, 'rgba(45, 120, 170, 0.02)');
+      grad.addColorStop(1, 'rgba(45, 120, 170, 0.22)');
+
+      chartCtx.fillStyle = grad;
+      chartCtx.beginPath();
+      chartCtx.moveTo(0, h);
+
+      var step = w / Math.max(1, chartPoints.length - 1);
+      for (var i = 0; i < chartPoints.length; i++) {
+        var x = i * step;
+        var y = h * (1 - chartPoints[i]);
+        chartCtx.lineTo(x, y);
+      }
+      chartCtx.lineTo(w, h);
+      chartCtx.closePath();
+      chartCtx.fill();
+
+      chartCtx.lineWidth = 2.2;
+      chartCtx.strokeStyle = lastTrend === 'bull' ? 'rgba(40, 156, 102, 0.62)' : 'rgba(201, 73, 106, 0.6)';
+      chartCtx.beginPath();
+      for (var j = 0; j < chartPoints.length; j++) {
+        var xx = j * step;
+        var yy = h * (1 - chartPoints[j]);
+        if (j === 0) chartCtx.moveTo(xx, yy);
+        else chartCtx.lineTo(xx, yy);
+      }
+      chartCtx.stroke();
+
+      chartRAF = requestAnimationFrame(tickChart);
+    }
+
+    function startChart() {
+      if (!chartCtx) initChart();
+      resizeChart();
+      stopChart();
+      chartRAF = requestAnimationFrame(tickChart);
+    }
+
+    function setEffects(enabled) {
+      effectsEnabled = !!enabled;
+      if (effectsToggle) effectsToggle.checked = effectsEnabled;
+      if (root) root.classList.toggle('effects-off', !effectsEnabled);
+      saveEffectsConfig(effectsEnabled);
+
+      if (!effectsEnabled) {
+        stopChart();
+        if (candleField) candleField.innerHTML = '';
+        return;
+      }
+
+      startChart();
+      spawnCandles(8, lastTrend);
+    }
+
+    function detectTrend(leverage) {
+      if (leverage === null) {
+        return lastTrend;
+      }
+
+      if (previousLeverage === null) {
+        previousLeverage = leverage;
+        return leverage >= 10 ? 'bull' : 'bear';
+      }
+
+      var trend = leverage >= previousLeverage ? 'bull' : 'bear';
+      previousLeverage = leverage;
+      return trend;
+    }
+
+    function spawnCandles(count, trend) {
+      if (!candleField || !effectsEnabled) return;
+
+      var bullProbability = trend === 'bull' ? 0.78 : 0.22;
+
+      for (var i = 0; i < count; i++) {
+        var candle = document.createElement('span');
+        var body = document.createElement('span');
+        var wick = document.createElement('span');
+
+        var isBull = Math.random() < bullProbability;
+        var left = 3 + Math.random() * 94;
+        var width = 6 + Math.random() * 7;
+        var bodyHeight = 16 + Math.random() * 34;
+        var wickHeight = bodyHeight + (16 + Math.random() * 28);
+        var duration = 2.1 + Math.random() * 2.1;
+
+        candle.className = 'candle ' + (isBull ? 'bull' : 'bear');
+        body.className = 'candle-body';
+        wick.className = 'candle-wick';
+
+        candle.style.left = left.toFixed(2) + '%';
+        candle.style.width = width.toFixed(1) + 'px';
+        candle.style.setProperty('--body-height', bodyHeight.toFixed(1) + 'px');
+        candle.style.setProperty('--wick-height', wickHeight.toFixed(1) + 'px');
+        candle.style.setProperty('--rise-duration', duration.toFixed(2) + 's');
+
+        candle.appendChild(wick);
+        candle.appendChild(body);
+        candleField.appendChild(candle);
+
+        candle.addEventListener('animationend', function () {
+          this.remove();
+        });
+      }
+    }
+
+    function calculate() {
+      var rUsd = parseNum(rUsdEl.value);
+      var slPct = parseNum(slPctEl.value);
+      var entryToSlPct = parseNum(entryToSlEl.value);
+
+      var realStopUsd = null;
+      var leverage = null;
+      var volume = null;
+
+      if (slPct > 0) {
+        realStopUsd = (rUsd * 100) / slPct;
+      }
+
+      if (slPct > 0 && entryToSlPct > 0) {
+        leverage = slPct / entryToSlPct;
+      }
+
+      if (realStopUsd !== null && leverage !== null) {
+        volume = realStopUsd * leverage;
+      }
+
+      outRealStop.textContent = realStopUsd !== null ? formatMoney(realStopUsd) : 'N/A';
+      outEntrySl.textContent = entryToSlPct > 0 ? entryToSlPct.toFixed(2) + '%' : 'N/A';
+      outLeverage.textContent = leverage !== null ? leverage.toFixed(2) + 'x' : 'N/A';
+      outVolume.textContent = volume !== null ? formatMoney(volume) : 'N/A';
+
+      lastTrend = detectTrend(leverage);
+
+      if (resultsCard) {
+        resultsCard.classList.remove('flash');
+        void resultsCard.offsetWidth;
+        resultsCard.classList.add('flash');
+      }
+
+      spawnCandles(16, lastTrend);
+      saveDefaults();
+    }
+
+    loadDefaults();
+    effectsEnabled = loadEffectsConfig();
+    setEffects(effectsEnabled);
+
+    if (effectsToggle) {
+      effectsToggle.addEventListener('change', function () {
+        setEffects(!!this.checked);
+      });
+    }
+
+    window.addEventListener('resize', resizeChart);
+
+    if (effectsEnabled) {
+      spawnCandles(10, lastTrend);
+    }
+
+    btnCalc.addEventListener('click', calculate);
+  })();
+</script>

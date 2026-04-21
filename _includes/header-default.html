@@ -36,6 +36,12 @@
             </a>
         </div>
 
+        <div style="margin: 14px 0 8px; text-align: center;">
+            <a href="{{ site.baseurl }}/leverage/" style="display: inline-block; padding: 10px 16px; border-radius: 999px; background: linear-gradient(120deg, #49d6a0, #6ee7d9); color: #0f1b14; font-weight: 700; text-decoration: none; box-shadow: 0 8px 18px rgba(73, 214, 160, 0.24);">
+                Open Leverage Calculator
+            </a>
+        </div>
+
         <ul class="recent">
             <p>Recent posts:</p>
              {% for post in site.posts limit:3%}
@@ -51,7 +57,7 @@
             <p>Recent projects:</p>
              {% for project in site.projects limit:3%}
                 <li>
-                    <a title="Show my recent project" href="{{ project.url}}">
+                    <a title="Show my recent project" href="{% if project.url contains 'http' %}{{ project.url }}{% else %}{{ project.url | prepend: site.baseurl }}{% endif %}">
                         <h2 class="post-title" itemprop="name">{{ project.name }}</h2>
                     </a>
                 </li>
