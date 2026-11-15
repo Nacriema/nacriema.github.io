@@ -515,12 +515,45 @@
     run(v);
   });
 
+  /* Vietnamese (and other) IMEs keep the word being typed as "composition"
+     text. If Tab completes while that text is still pending, the IME commits
+     it afterwards and it lands after the completion ("cd projects/pr").
+     So while composing, Tab waits for the IME to commit, then completes. */
+  var composing = false;
+  var tabAfterComposition = false;
+
+  input.addEventListener('compositionstart', function () {
+    composing = true;
+  });
+
+  input.addEventListener('compositionend', function () {
+    composing = false;
+    if (tabAfterComposition) {
+      tabAfterComposition = false;
+      setTimeout(complete, 0);
+    }
+  });
+
   input.addEventListener('keydown', function (e) {
     /* Keep the site's global shortcuts (space = menu, 1-6, s...) out of the way */
     e.stopPropagation();
 
-    if (e.key === 'Tab') {
+    if (e.key === 'Tab' || (e.keyCode === 229 && e.code === 'Tab')) {
       e.preventDefault();
+      if (composing || e.isComposing) {
+        tabAfterComposition = true;
+        /* moving focus away and back makes the browser commit the IME text */
+        input.blur();
+        input.focus();
+        /* If compositionend already fired it cleared the flag and scheduled the
+           completion; if still composing we keep waiting. Only when no
+           composition events arrived at all do we complete here. */
+        if (!composing && tabAfterComposition) {
+          tabAfterComposition = false;
+          setTimeout(complete, 0);
+        }
+        return;
+      }
       complete();
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
