@@ -255,6 +255,14 @@
       if (TAGS[m[1]]) return listPosts(TAGS[m[1]]);
       return err('ls: cannot access \'' + args[0] + '\': No such tag');
     }
+    var pm = target.match(/^projects\/(.+)$/);
+    if (pm) {
+      var proj = findProject(pm[1]);
+      if (proj) return line(link(proj.slug + '/', proj.url, 'tt-link tt-dir', proj.external));
+      return err('ls: cannot access \'' + args[0] + '\': No such project');
+    }
+    var fm = target.match(/^posts\/(.+)$/);
+    if (fm) target = fm[1];
     if (findPost(target)) return listPosts([findPost(target)]);
     err('ls: cannot access \'' + args[0] + '\': No such file or directory');
   };
@@ -267,6 +275,8 @@
     target = target.replace(/^~\//, '').replace(/^\.\//, '');
     var m = target.match(/^tags\/(.+)$/);
     if (m && TAGS[m[1]]) return navigate(DIRS.tags + '#' + m[1]);
+    var pm = target.match(/^projects\/(.+)$/);
+    if (pm && findProject(pm[1])) return openProject(findProject(pm[1]));
     if (DIRS[target]) return navigate(DIRS[target]);
     if (target === 'projects') return COMMANDS.ls(['projects']);
     if (findPost(target)) return err('cd: ' + args[0] + ': Not a directory (try: cat ' + args[0] + ')');
@@ -283,16 +293,18 @@
   };
   COMMANDS.less = COMMANDS.more = COMMANDS.vim = COMMANDS.nano = COMMANDS.cat;
 
+  function openProject(proj) {
+    if (proj.external) {
+      window.open(proj.url, '_blank', 'noopener');
+      return line([el('span', 'tt-muted', '→ opened in a new tab: '), link(proj.name, proj.url, null, true)]);
+    }
+    return navigate(proj.url, proj.name);
+  }
+
   COMMANDS.open = function (args) {
     if (!args[0]) return err('open: missing operand (try: ls projects)');
-    var proj = findProject(args[0].replace(/^projects\//, ''));
-    if (proj) {
-      if (proj.external) {
-        window.open(proj.url, '_blank', 'noopener');
-        return line([el('span', 'tt-muted', '→ opened in a new tab: '), link(proj.name, proj.url, null, true)]);
-      }
-      return navigate(proj.url, proj.name);
-    }
+    var proj = findProject(args[0].replace(/^~\//, '').replace(/^projects\//, ''));
+    if (proj) return openProject(proj);
     COMMANDS.cat(args);
   };
   COMMANDS['xdg-open'] = COMMANDS.open;
@@ -421,21 +433,47 @@
     }
   }
 
+  /* Path-aware completion, like bash: "projects/los" -> "projects/loss-.../" */
+  var CHILDREN = {
+    projects: function () { return DATA.projects.map(function (p) { return p.slug + '/'; }); },
+    tags: function () { return Object.keys(TAGS).map(function (t) { return t + '/'; }); },
+    posts: function () { return DATA.posts.map(function (p) { return p.slug + '.md'; }); }
+  };
+
+  /* which top-level entries and which sub-directories each command can complete */
+  var COMPLETION = {
+    cd: { top: ['dirs', '~'], sub: ['projects', 'tags'] },
+    ls: { top: ['dirs'], sub: ['projects', 'tags', 'posts'] },
+    cat: { top: ['posts', 'postsDir'], sub: ['posts'] },
+    open: { top: ['projects', 'posts', 'projectsDir', 'postsDir'], sub: ['projects', 'posts'] }
+  };
+  COMPLETION.less = COMPLETION.vim = COMPLETION.more = COMPLETION.nano = COMPLETION.cat;
+  COMPLETION['xdg-open'] = COMPLETION.open;
+
   function argCandidates(cmdName, partial) {
-    if (cmdName === 'cat' || cmdName === 'less' || cmdName === 'vim') {
-      return DATA.posts.map(function (p) { return p.slug + '.md'; });
-    }
-    if (cmdName === 'open') {
-      return DATA.projects.map(function (p) { return p.slug; })
-        .concat(DATA.posts.map(function (p) { return p.slug + '.md'; }));
-    }
-    if (cmdName === 'cd' || cmdName === 'ls') {
-      if (/^tags\//.test(partial)) {
-        return Object.keys(TAGS).map(function (t) { return 'tags/' + t; });
+    var rule = COMPLETION[cmdName];
+    if (!rule) return [];
+    var home = /^~\//.test(partial) ? '~/' : '';
+    var path = partial.slice(home.length);
+    var slash = path.indexOf('/');
+    var list = [];
+
+    if (slash === -1) {
+      rule.top.forEach(function (kind) {
+        if (kind === 'dirs') list = list.concat(Object.keys(DIRS).map(function (d) { return d + '/'; }));
+        if (kind === '~' && !home) list.push('~');
+        if (kind === 'posts') list = list.concat(CHILDREN.posts());
+        if (kind === 'projects') list = list.concat(DATA.projects.map(function (p) { return p.slug; }));
+        if (kind === 'postsDir') list.push('posts/');
+        if (kind === 'projectsDir') list.push('projects/');
+      });
+    } else {
+      var dir = path.slice(0, slash);
+      if (rule.sub.indexOf(dir) !== -1 && CHILDREN[dir]) {
+        list = CHILDREN[dir]().map(function (c) { return dir + '/' + c; });
       }
-      return Object.keys(DIRS).map(function (d) { return d + '/'; }).concat(['~']);
     }
-    return [];
+    return list.map(function (c) { return home + c; });
   }
 
   function commonPrefix(list) {
