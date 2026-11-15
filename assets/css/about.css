@@ -166,4 +166,255 @@ h1, h2, h3, h4 {
     margin-left: -1em; 
 }
 
-# 
+/* ==========================================================================
+   neofetch-style header (base layout - also used for the light PDF/print)
+   ========================================================================== */
+
+.neofetch {
+    display: grid;
+    grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nf-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.nf-cmd { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.nf-title { font-size: 2rem; margin: 0; }
+.nf-name { font-size: 1.8rem; margin: 0; }
+.nf-name small { display: block; font-size: 1rem; color: #555; margin-top: 0.2rem; }
+.nf-rule { height: 0; border-top: 2px dashed #ccc; width: 15ch; margin: 0.6rem 0 1rem; }
+
+.nf-facts { margin: 0 0 1.2rem; }
+.nf-facts > div { display: flex; gap: 0.75rem; margin-bottom: 0.25rem; }
+.nf-facts dt { flex: none; width: 6.5rem; font-weight: 500; color: #000; }
+.nf-facts dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+.nf-palette { display: flex; gap: 0; margin-bottom: 1.2rem; }
+.nf-palette span { width: 28px; height: 16px; }
+.nf-palette span:nth-child(1) { background: #243044; }
+.nf-palette span:nth-child(2) { background: #ff7b72; }
+.nf-palette span:nth-child(3) { background: #7ee787; }
+.nf-palette span:nth-child(4) { background: #f0b45b; }
+.nf-palette span:nth-child(5) { background: #79c0ff; }
+.nf-palette span:nth-child(6) { background: #b392f0; }
+.nf-palette span:nth-child(7) { background: #56d4dd; }
+.nf-palette span:nth-child(8) { background: #d7dfeb; }
+
+.nf-actions { margin: 0; }
+.nf-btn {
+    font: inherit;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .neofetch { grid-template-columns: 1fr; gap: 1.5rem; }
+    .nf-art { max-width: 160px; }
+}
+
+@media print {
+    .neofetch { grid-template-columns: 140px 1fr; }
+
+    /* Site chrome never belongs on the printed CV */
+    .header-post, aside, .search-wrapper, #fade, .slideButton, .dosearch, footer,
+    .nf-cmd, .nf-palette, .leetcard {
+        display: none !important;
+    }
+
+    body.theme-space {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    /* Keep entries in one piece across page breaks */
+    #experience .row, .neofetch, h2, h3 {
+        break-inside: avoid;
+    }
+
+    h2, h3 { break-after: avoid; }
+}
+
+/* ==========================================================================
+   "Terminal in space" theme for the About page (screen only, so printing
+   and the exported PDF keep the light CV look)
+   ========================================================================== */
+
+@media screen {
+    .theme-about {
+        --bs-body-color: #c3cddc;
+        --bs-body-color-rgb: 195, 205, 220;
+        --bs-body-bg: transparent;
+        --bs-border-color: #243044;
+        --bs-emphasis-color: #f3f6fb;
+        --bs-secondary-color: #8a97ad;
+        --bs-link-color: #b392f0;
+        --bs-link-color-rgb: 179, 146, 240;
+        --bs-link-hover-color: #d2bcff;
+        --bs-link-hover-color-rgb: 210, 188, 255;
+        --bs-primary: #7ee787;
+        --light-color: #3a4760;
+        --bs-body-font-size: 1.05rem;
+        --bs-font-sans-serif: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .theme-about .page {
+        max-width: 1100px;
+        padding-top: 2.5rem;
+        line-height: 1.7;
+    }
+
+    .theme-about .border-bottom {
+        border-color: var(--border) !important;
+        border-bottom-style: dashed !important;
+        border-bottom-width: 1px !important;
+    }
+
+    .theme-about h1,
+    .theme-about h2,
+    .theme-about h3,
+    .theme-about h4 {
+        color: var(--text-strong);
+        font-family: var(--font-sans);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+    }
+
+    .theme-about .page > div > h2::before,
+    .theme-about .page > div > h3.h2::before,
+    .theme-about #experience > h2::before {
+        content: "## ";
+        font-family: var(--font-mono);
+        font-weight: 500;
+        color: var(--accent);
+    }
+
+    .theme-about .page h2 {
+        font-size: 1.6rem;
+    }
+
+    .theme-about .page h3.fs-4 {
+        font-size: 1.15rem !important;
+        font-weight: 600;
+    }
+
+    .theme-about .page h3.fs-4 small {
+        color: var(--muted);
+        font-weight: 400;
+    }
+
+    .theme-about .col-md-2.pt-1,
+    .theme-about .page time {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--muted);
+    }
+
+    /* neofetch block */
+    .theme-about .neofetch {
+        font-family: var(--font-mono);
+    }
+
+    .theme-about .nf-photo {
+        border: 2px solid var(--border);
+        box-shadow: 0 0 0 6px rgba(179, 146, 240, 0.08), 0 0 70px -15px rgba(179, 146, 240, 0.5);
+    }
+
+    .theme-about .nf-cmd { color: var(--muted); }
+
+    .theme-about .nf-title {
+        font-family: var(--font-mono);
+        font-size: 1.7rem;
+        letter-spacing: 0;
+    }
+
+    .theme-about .nf-user { color: var(--accent); }
+    .theme-about .nf-at { color: var(--muted); }
+    .theme-about .nf-host { color: var(--accent-2); }
+    .theme-about .nf-rule { border-top-color: var(--border); }
+
+    .theme-about .nf-facts { font-size: 0.92rem; }
+    .theme-about .nf-facts dt { color: var(--accent-2); font-weight: 700; }
+    .theme-about .nf-facts dt::after { content: ":"; color: var(--muted); }
+    .theme-about .nf-facts dd,
+    .theme-about .nf-facts dd a { color: var(--text); }
+    .theme-about .nf-facts dd a:hover { color: var(--accent); }
+    .theme-about .fact-icon { color: var(--muted); }
+
+    .theme-about .nf-btn {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        border-color: var(--border);
+        background: var(--surface);
+        color: var(--accent);
+        transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .theme-about .nf-btn:hover {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    /* Skill meters: dots -> bars */
+    .theme-about .skills {
+        display: block;
+        width: 100%;
+        min-width: 70px;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--surface-2);
+        overflow: hidden;
+    }
+
+    .theme-about .skills::after,
+    .theme-about .skills-bar::after { content: none; }
+
+    .theme-about .skills-bar {
+        height: 100%;
+        border-radius: 4px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .theme-about .leetcard {
+        border-radius: var(--radius);
+        margin-top: 1rem;
+    }
+
+    .theme-about .badge {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--accent) !important;
+        background: var(--accent-soft);
+        border-color: var(--border) !important;
+        border-radius: 999px;
+        padding: 0.35em 0.8em;
+    }
+
+    .theme-about #experience li::before {
+        content: '▹ ';
+        color: var(--accent);
+    }
+
+    .theme-about .page a { color: var(--accent-2); }
+    .theme-about .page a:hover { color: var(--accent); }
+
+    .theme-about .page strong { color: var(--text-strong); }
+
+    /* The menu button carries class "fade", which Bootstrap hides (opacity 0) */
+    .theme-about .slideButton.fade { opacity: 1; }
+
+    @media (max-width: 480px) {
+        .theme-about .nf-facts dt { width: 5.5rem; }
+        .theme-about .nf-facts { font-size: 0.85rem; }
+    }
+}

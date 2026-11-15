@@ -1,4 +1,7 @@
+{% assign url_parts = page.url | split: '/' %}
 <header class="header-post">
-   	<p>Nacriema</p>
+    <p class="prompt" aria-label="{{ site.username }}">
+        <span class="prompt-user">{{ site.username | downcase }}</span><span class="prompt-at">@</span><span class="prompt-host">space</span><span class="prompt-sep">:</span><span class="prompt-path">~/{{ url_parts[1] }}</span><span class="prompt-sign">$</span><span class="cursor" aria-hidden="true"></span>
+    </p>
     {% include menu-search.html %}
 </header>

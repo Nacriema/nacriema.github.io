@@ -21,7 +21,7 @@ email: huytruong2931998@gmail.com
 twitter_username:
 github_username: Nacriema
 gplus_username:
-linkedin_public_url: # Example: For public profile 'www.linkedin.com/in/john-smith', 'john-smith' is your linkedin_public_url
+linkedin_public_url: huy-truong-mai # Example: For public profile 'www.linkedin.com/in/john-smith', 'john-smith' is your linkedin_public_url
 disqus_username: Nacriema
 profile_picture: https://github.com/Nacriema.png
 
@@ -89,7 +89,7 @@ facts:
   - name: Github
     value: '<a href="https://github.com/Nacriema"><i class="fab fa-github fact-icon"></i>Nacriema</a>'
   - name: LinkedIn
-    value: '<a href="https://github.com/Nacriema"><i class="fab fa-linkedin fact-icon"></i>Nacriema</a>'
+    value: '<a href="https://www.linkedin.com/in/huy-truong-mai/"><i class="fab fa-linkedin fact-icon"></i>huy-truong-mai</a>'
   - name: Mobile
     value: '<a href="tel:+84916694687"><i class="fa fa-phone fact-icon"></i>+84916694687</a>'
   - name: Email

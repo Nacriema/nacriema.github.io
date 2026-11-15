@@ -6,46 +6,36 @@ layout: compress
 <html lang="en">
     {% include head.html %}
     {% include header-about.html %}
-    <body>
+    <body class="theme-space theme-about" data-bs-theme="dark">
+        {% include svg-icons.html %}
+        {% include header-post.html %}
         <div class="container page">
-            <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
-                <div class="row">
-                    <div class="col-print-6 col-12 col-md-4 d-flex justify-content-between flex-column">
-                        <div>
-                            <h1 class="mb-0">Truong Mai Huy</h1>
-                            <div class="fs-3">AI Engineer</div>
-                        </div>
-                        <div>
-                            <p>
-                                <!-- TODO: Make the update time dynamic -->
-                                <time datetime="{{ buildinfo.date }}" class="small">Last update: {{ site.last_update }} </time>
-                            </p>
-                            <p>
-                                <span class="screen"><a onclick="generatePDF()"><i class="far fa-file-pdf"></i>Download PDF version</a></span>
-                                <span class="print">Up-to-date version of CV is available at <a href="{{ baseUrl }}"
-                                                                                                class="text-nowrap"><i
-                                    class="fab fa-github" aria-hidden="true"></i>{{ baseUrl }}</a></span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2 offset-lg-1 d-none d-md-block align-md-self-center text-center">
-                        <img width="320" height="320"  src="{{ site.base64 }}" class="rounded-circle img-fluid" alt="Personal photo">
-                    </div>
-
-                    <!-- This is the address fields   -->
-                    <div class="col-print-6 col-12 col-md-5 offset-lg-1 col-lg-4">
-                        <ul class="list-group list-group-flush">
-                            {% for fact in site.facts %}
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <span class="text-nowrap">{{ fact.name }}</span>
-                                    <span class="text-nowrap">{{ fact.value }}</span>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+            <!-- neofetch-style profile header -->
+            <section class="neofetch border-bottom border-2 border-print-0 mb-5 pb-5 pb-print-0 mb-print-1">
+                <div class="nf-art">
+                    <img width="320" height="320" src="{{ site.base64 }}" class="nf-photo" alt="Personal photo">
                 </div>
-            </div>
-            
+                <div class="nf-info">
+                    <p class="nf-cmd screen"><span class="ps1">$</span> neofetch --user huy</p>
+                    <h1 class="nf-title screen"><span class="nf-user">huy</span><span class="nf-at">@</span><span class="nf-host">truong-mai</span></h1>
+                    <h1 class="nf-name print">Truong Mai Huy <small>AI Engineer</small></h1>
+                    <div class="nf-rule" aria-hidden="true"></div>
+                    <dl class="nf-facts">
+                        <div><dt>Name</dt><dd>Truong Mai Huy</dd></div>
+                        <div><dt>Role</dt><dd>AI Engineer</dd></div>
+                        {% for fact in site.facts %}
+                        <div><dt>{{ fact.name }}</dt><dd>{{ fact.value }}</dd></div>
+                        {% endfor %}
+                        <div><dt>Updated</dt><dd><time datetime="{{ site.time | date_to_xmlschema }}">{{ site.last_update }}</time></dd></div>
+                    </dl>
+                    <div class="nf-palette screen" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    <p class="nf-actions">
+                        <span class="screen"><button type="button" class="nf-btn" onclick="generatePDF()"><i class="far fa-file-pdf"></i>./export-cv --pdf</button></span>
+                        <span class="print">Up-to-date version of CV is available at <a href="https://nacriema.github.io/about/" class="text-nowrap"><i class="fab fa-github" aria-hidden="true"></i>nacriema.github.io/about</a></span>
+                    </p>
+                </div>
+            </section>
+
             <!-- Intoduction about me -->
             <div class="border-bottom border-2 border-print-0 border-dark mb-5 pb-5 pb-print-0 mb-print-1">
                {{ site.introduction }}
@@ -67,7 +57,7 @@ layout: compress
                     {% endfor %}
                 </div>
                 <div class="row align-items-center mt-2">
-                    <img src="https://leetcard.jacoblin.cool/huytm?ext=heatmap" style="max-width: 100%; max-height: 100%;"/>
+                    <img class="leetcard" alt="LeetCode stats for huytm" src="https://leetcard.jacoblin.cool/huytm?ext=heatmap&theme=dark" style="max-width: 100%; max-height: 100%;"/>
                 </div>
             </div>
 
@@ -142,6 +132,28 @@ layout: compress
 
         </div>
 
+        {% include footer.html %}
+        {% include scripts.html %}
+        <script>
+            /* Open external CV links in a new tab (replaces the old <base target="_blank">, */
+            /* which also hijacked the site menu links). */
+            document.querySelectorAll('.page a[href^="http"]').forEach(function (a) {
+                a.target = '_blank';
+                a.rel = 'noopener';
+            });
+
+            /* "Export PDF" uses the browser's own print engine (Print > Save as PDF):
+               vector text, selectable, and it reuses the print stylesheet in about.css.
+               The document title becomes the suggested file name. */
+            function generatePDF() {
+                var original = document.title;
+                document.title = 'truongmaihuy_cv';
+                window.addEventListener('afterprint', function restore() {
+                    document.title = original;
+                    window.removeEventListener('afterprint', restore);
+                });
+                window.print();
+            }
+        </script>
     </body>
-    {% include scripts.html %}
 </html>

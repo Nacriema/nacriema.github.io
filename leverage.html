@@ -14,7 +14,7 @@ description: "R:R leverage and volume calculator"
 
   <div class="calc-shell">
     <div class="calc-hero">
-      <p class="calc-eyebrow">Trading Utility</p>
+      <p class="calc-eyebrow">./leverage-calc --mode r-multiple</p>
       <h2 class="calc-title">R:R Leverage Calculator</h2>
       <p class="calc-subtitle">Estimate leverage and notional volume from your risk model in seconds.</p>
       <label class="effects-toggle" for="effects-enabled">
@@ -84,49 +84,25 @@ description: "R:R leverage and volume calculator"
 </section>
 
 <style>
-  html,
-  body {
-    min-height: 100%;
-  }
+  /* Leverage calculator - "terminal in space" theme. Colour tokens come from
+     .theme-space in assets/css/main.css. */
 
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(180deg, #ecf6ff 0%, #e2f0fa 48%, #d8e9f6 100%);
-  }
-
-  .page-header {
-    width: min(1500px, calc(100vw - 14px));
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-
-  main {
-    flex: 1;
+  .theme-page main {
     width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 8px 0 26px;
-    box-sizing: border-box;
-  }
-
-  footer {
-    margin-top: auto;
+    padding: 24px 0 8px;
   }
 
   .leverage-calc {
     position: relative;
     overflow: hidden;
-    max-width: none;
-    width: min(1500px, calc(100vw - 14px));
-    margin: 0 auto 16px;
+    width: min(1200px, calc(100vw - 24px));
+    margin: 0 auto;
     padding: 18px;
-    border-radius: 18px;
-    background: radial-gradient(circle at 15% 20%, rgba(214, 235, 251, 0.96), rgba(194, 223, 242, 0.94) 55%, rgba(177, 210, 233, 0.9) 100%);
-    border: 1px solid rgba(111, 145, 173, 0.28);
-    box-shadow: 0 14px 38px rgba(41, 82, 110, 0.2);
-    color: #18374d;
+    border-radius: 14px;
+    background: rgba(10, 14, 20, 0.82);
+    border: 1px solid var(--border);
+    box-shadow: 0 30px 70px -35px rgba(0, 0, 0, 0.95);
+    color: var(--text);
   }
 
   .calc-shell {
@@ -145,10 +121,11 @@ description: "R:R leverage and volume calculator"
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(64, 94, 116, 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(64, 94, 116, 0.12) 1px, transparent 1px);
+      linear-gradient(rgba(138, 151, 173, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(138, 151, 173, 0.07) 1px, transparent 1px);
     background-size: 28px 28px;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.84));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
   }
 
   .mini-chart {
@@ -156,7 +133,7 @@ description: "R:R leverage and volume calculator"
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.33;
+    opacity: 0.45;
   }
 
   .candle-field {
@@ -189,17 +166,18 @@ description: "R:R leverage and volume calculator"
     width: 100%;
     height: var(--body-height, 26px);
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.14);
   }
 
   .candle.bull .candle-body,
   .candle.bull .candle-wick {
-    background: linear-gradient(180deg, rgba(42, 168, 97, 0.95), rgba(32, 134, 89, 0.9));
+    background: linear-gradient(180deg, rgba(126, 231, 135, 0.9), rgba(63, 185, 80, 0.85));
+    box-shadow: 0 0 12px rgba(126, 231, 135, 0.25);
   }
 
   .candle.bear .candle-body,
   .candle.bear .candle-wick {
-    background: linear-gradient(180deg, rgba(220, 84, 112, 0.95), rgba(185, 57, 92, 0.9));
+    background: linear-gradient(180deg, rgba(255, 123, 114, 0.9), rgba(218, 54, 51, 0.85));
+    box-shadow: 0 0 12px rgba(255, 123, 114, 0.22);
   }
 
   @keyframes candle-rise {
@@ -208,10 +186,10 @@ description: "R:R leverage and volume calculator"
       opacity: 0;
     }
     16% {
-      opacity: 0.38;
+      opacity: 0.32;
     }
     45% {
-      opacity: 0.34;
+      opacity: 0.28;
     }
     100% {
       transform: translate(-50%, -420px) scale(1.03);
@@ -219,35 +197,51 @@ description: "R:R leverage and volume calculator"
     }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .candle { display: none; }
+  }
+
+  .calc-hero,
+  .calc-guide,
+  .calc-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(20, 27, 40, 0.78);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
   .calc-hero {
-    margin: 4px 0 18px;
-    padding: 18px;
-    border-radius: 14px;
-    border: 1px solid rgba(111, 151, 181, 0.38);
-    background: linear-gradient(130deg, rgba(246, 252, 255, 0.9), rgba(227, 241, 251, 0.74));
-    box-shadow: 0 10px 24px rgba(51, 93, 124, 0.16);
-    backdrop-filter: blur(3px);
+    margin: 0 0 18px;
+    padding: 20px;
   }
 
   .calc-eyebrow {
     margin: 0;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.76rem;
-    color: #3f6179;
-    opacity: 0.92;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .calc-eyebrow::before {
+    content: "$ ";
+    color: var(--accent);
+    font-weight: 700;
   }
 
   .calc-title {
-    margin: 6px 0 8px;
-    font-size: 1.8rem;
+    margin: 8px 0 6px;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.9rem;
     line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-strong);
   }
 
   .calc-subtitle {
     margin: 0;
-    color: #29485f;
-    opacity: 0.95;
+    color: var(--muted);
   }
 
   .effects-toggle {
@@ -255,33 +249,41 @@ description: "R:R leverage and volume calculator"
     align-items: center;
     gap: 8px;
     margin-top: 14px;
-    padding: 8px 10px;
-    border-radius: 10px;
-    border: 1px solid rgba(111, 151, 181, 0.4);
-    background: rgba(255, 255, 255, 0.56);
-    font-size: 0.9rem;
-    color: #2f556f;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-elev);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text);
     cursor: pointer;
     user-select: none;
   }
 
   .effects-toggle input {
     margin: 0;
-    accent-color: #2ea477;
+    accent-color: var(--accent);
   }
 
   .calc-guide {
-    border: 1px solid rgba(111, 151, 181, 0.32);
-    border-radius: 12px;
-    padding: 18px;
-    background: radial-gradient(circle at top right, rgba(248, 237, 212, 0.58), rgba(241, 250, 255, 0.86));
+    padding: 18px 20px;
     margin-bottom: 18px;
-    backdrop-filter: blur(2px);
   }
 
-  .calc-guide h2 {
-    margin: 0 0 8px;
-    font-size: 1.05rem;
+  .calc-guide h2,
+  .calc-card h2 {
+    margin: 0 0 12px;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-strong);
+  }
+
+  .calc-guide h2::before,
+  .calc-card h2::before {
+    content: "## ";
+    color: var(--accent);
+    font-weight: 500;
   }
 
   .calc-guide ol {
@@ -291,13 +293,28 @@ description: "R:R leverage and volume calculator"
 
   .calc-guide li {
     margin-bottom: 6px;
+    line-height: 1.6;
+  }
+
+  .calc-guide li::marker {
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+
+  .calc-guide strong {
+    color: var(--text-strong);
   }
 
   .calc-guide-note {
-    margin: 8px 0 0;
-    color: #365770;
-    opacity: 0.98;
-    line-height: 1.5;
+    margin: 10px 0 0;
+    padding: 8px 12px;
+    border-left: 2px solid var(--accent-2);
+    background: var(--accent-2-soft);
+    border-radius: 0 6px 6px 0;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text);
   }
 
   .calc-grid {
@@ -308,12 +325,7 @@ description: "R:R leverage and volume calculator"
   }
 
   .calc-card {
-    border: 1px solid rgba(111, 151, 181, 0.35);
-    border-radius: 12px;
-    padding: 18px;
-    background: rgba(246, 252, 255, 0.86);
-    box-shadow: 0 10px 24px rgba(72, 110, 138, 0.16);
-    backdrop-filter: blur(4px);
+    padding: 18px 20px 20px;
   }
 
   .calc-card.flash {
@@ -321,60 +333,60 @@ description: "R:R leverage and volume calculator"
   }
 
   @keyframes card-flash {
-    0% {
-      box-shadow: 0 0 0 rgba(73, 214, 160, 0);
-    }
-    45% {
-      box-shadow: 0 0 28px rgba(72, 185, 143, 0.26);
-    }
-    100% {
-      box-shadow: 0 10px 24px rgba(72, 110, 138, 0.16);
-    }
-  }
-
-  .calc-card h2 {
-    margin: 0 0 10px;
-    font-size: 1.1rem;
+    0% { box-shadow: 0 0 0 rgba(126, 231, 135, 0); }
+    45% { box-shadow: 0 0 30px rgba(126, 231, 135, 0.28); }
+    100% { box-shadow: 0 0 0 rgba(126, 231, 135, 0); }
   }
 
   .calc-card label {
     display: block;
-    font-size: 0.95rem;
-    margin: 10px 0 6px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 12px 0 6px;
   }
 
   .calc-card input {
     width: 100%;
+    box-sizing: border-box;
     border-radius: 8px;
-    border: 1px solid rgba(122, 156, 183, 0.38);
+    border: 1px solid var(--border);
     padding: 11px 12px;
-    background: rgba(255, 255, 255, 0.8);
-    color: #1d3b50;
+    background: var(--bg);
+    color: var(--text-strong);
+    font-family: var(--font-mono);
+    font-size: 1rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .calc-card input:focus {
     outline: none;
-    border-color: rgba(46, 164, 119, 0.7);
-    box-shadow: 0 0 0 3px rgba(46, 164, 119, 0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
   }
 
   #btn-calc {
-    margin-top: 14px;
+    margin-top: 16px;
     width: 100%;
-    border: 0;
+    border: 1px solid var(--accent);
     border-radius: 8px;
     padding: 11px 12px;
-    background: linear-gradient(120deg, #43c492, #78e8da);
-    color: #0f1b14;
+    background: var(--accent);
+    color: #06210d;
+    font-family: var(--font-mono);
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
 
+  #btn-calc::before {
+    content: "$ ./";
+    opacity: 0.6;
+  }
+
   #btn-calc:hover {
     transform: translateY(-1px);
-    box-shadow: 0 8px 18px rgba(73, 214, 160, 0.25);
+    box-shadow: 0 10px 24px -8px rgba(126, 231, 135, 0.55);
   }
 
   .result-row {
@@ -382,32 +394,46 @@ description: "R:R leverage and volume calculator"
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    margin: 10px 0;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .result-row span {
+    color: var(--muted);
+  }
+
+  .result-row strong {
+    font-family: var(--font-mono);
+    color: var(--text-strong);
   }
 
   .result-metrics {
-    margin-top: 14px;
+    margin-top: 16px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
   .metric-box {
-    border: 1px solid rgba(122, 156, 183, 0.36);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.72);
+    padding: 12px 14px;
+    background: var(--bg);
   }
 
   .metric-box small {
     display: block;
     margin-bottom: 6px;
-    opacity: 0.92;
-    color: #3d6078;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--muted);
   }
 
   .metric-box strong {
-    font-size: 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 1.4rem;
+    color: var(--accent);
   }
 
   .effects-off .mini-chart,
@@ -417,9 +443,8 @@ description: "R:R leverage and volume calculator"
 
   @media (max-width: 800px) {
     .leverage-calc {
-      width: calc(100vw - 10px);
-      border-radius: 14px;
-      padding: 14px;
+      width: calc(100vw - 16px);
+      padding: 12px;
     }
 
     .calc-grid {
@@ -569,8 +594,8 @@ description: "R:R leverage and volume calculator"
       chartCtx.clearRect(0, 0, w, h);
 
       var grad = chartCtx.createLinearGradient(0, 0, 0, h);
-      grad.addColorStop(0, 'rgba(45, 120, 170, 0.02)');
-      grad.addColorStop(1, 'rgba(45, 120, 170, 0.22)');
+      grad.addColorStop(0, 'rgba(179, 146, 240, 0.0)');
+      grad.addColorStop(1, 'rgba(179, 146, 240, 0.18)');
 
       chartCtx.fillStyle = grad;
       chartCtx.beginPath();
@@ -587,7 +612,7 @@ description: "R:R leverage and volume calculator"
       chartCtx.fill();
 
       chartCtx.lineWidth = 2.2;
-      chartCtx.strokeStyle = lastTrend === 'bull' ? 'rgba(40, 156, 102, 0.62)' : 'rgba(201, 73, 106, 0.6)';
+      chartCtx.strokeStyle = lastTrend === 'bull' ? 'rgba(126, 231, 135, 0.7)' : 'rgba(255, 123, 114, 0.65)';
       chartCtx.beginPath();
       for (var j = 0; j < chartPoints.length; j++) {
         var xx = j * step;

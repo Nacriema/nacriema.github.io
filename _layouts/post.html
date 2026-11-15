@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include head.html %}
-    <body>
+    <body class="theme-space has-tree">
         {% include fbsdk.html %}
         {% include svg-icons.html %}
         {% include header-post.html %}
         {% include tree-posts.html %}
         <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
-            {% if page.date %}
-                <div class="time">
-                    <time itemprop="datePublished" datetime="{{ page.date }}">{{ page.date | date_to_string }}</time>
-                </div>
-            {% endif %}
-            <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
+            {% assign words = content | strip_html | number_of_words %}
+            {% assign reading_minutes = words | divided_by: 200 | plus: 1 %}
+            <header class="post-header">
+                <p class="post-cmd" aria-hidden="true"><span class="ps1">$</span> cat {{ page.title | slugify }}.md</p>
+                <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
+                <p class="post-info">
+                    {% if page.date %}
+                    <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+                    <span class="sep" aria-hidden="true">·</span>
+                    {% endif %}
+                    <span>{{ reading_minutes }} min read</span>
+                    {% for tag in page.tags %}
+                    <a class="chip" href="{{ site.baseurl }}/tags/#{{ tag | slugify }}">#{{ tag | slugify }}</a>
+                    {% endfor %}
+                </p>
+            </header>
 
             <article role="article" id="scroll" class="post-content" itemprop="articleBody">
                 {{ content }}

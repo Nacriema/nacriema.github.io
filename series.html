@@ -17,7 +17,7 @@ description: "Take a look at my series..."
       <li>
           <a title="Post's my title" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
               <span class="entry-date">
-              <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time>
+              <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y-%m-%d" }}</time>
           </a>
       </li>
       {% endif %}

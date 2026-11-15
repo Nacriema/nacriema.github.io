@@ -1,13 +1,5 @@
 <script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
 <script src="{{ "/assets/js/particles.js" | prepend: site.baseurl }}"></script>
 <script src="{{ "/assets/js/app.js" | prepend: site.baseurl }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script>
-    function generatePDF(){
-        var pdf = new jsPDF('p','pt','a4');
-        pdf.addHTML(document.documentElement,function() {
-            pdf.save('truongmaihuy_cv.pdf');
-        });
-    }
-</script>
+{% include terminal-data.html %}
+<script src="{{ "/assets/js/terminal.js" | prepend: site.baseurl }}"></script>

@@ -1,17 +1,17 @@
-<div class="tree-posts">
+<nav class="tree-posts" aria-label="All posts">
 
-    <h3>*Posts*</h3>
+    <h3 class="tree-title"><span class="tree-root">~/</span>posts <span class="tree-count">{{ site.posts | size }} files</span></h3>
 
+    <ul class="tree-list">
     {% for post in site.posts %}
-
-    <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <div class="content">
-            <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
-                <h2 class="post-title" itemprop="name">{{ post.title | replace: ' ','-'}}.md</h2>
+        <li class="tree-item{% if post.url == page.url %} selected{% endif %}" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            <a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl }}">
+                <span class="tree-branch" aria-hidden="true">{% if forloop.last %}└──{% else %}├──{% endif %}</span>
+                <span class="tree-name" itemprop="name">{{ post.title | slugify }}.md</span>
+                <time class="tree-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
             </a>
-        </div>
-    </article>
-
+        </li>
     {% endfor %}
+    </ul>
 
-</div>
+</nav>
