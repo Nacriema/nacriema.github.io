@@ -515,24 +515,45 @@
     run(v);
   });
 
-  /* Vietnamese (and other) IMEs keep the word being typed as "composition"
-     text. If Tab completes while that text is still pending, the IME commits
-     it afterwards and it lands after the completion ("cd projects/pr").
-     So while composing, Tab waits for the IME to commit, then completes. */
+  /* Tab completion must read the text AFTER any input method (e.g. Vietnamese
+     Telex/VNI, EVKey, OpenKey) has finished writing into the field. IMEs
+     differ: some commit "composition" text when they see Tab, some delete and
+     retype the word. So instead of guessing, Tab waits until the field has
+     been quiet for a moment (and no composition is in progress), then
+     completes from whatever the final text is. */
   var composing = false;
-  var tabAfterComposition = false;
+  var lastInputAt = 0;
+  var tabTimer = null;
+  var tabDeadline = 0;
+  var QUIET_MS = 40;
+  var MAX_WAIT_MS = 400;
 
-  input.addEventListener('compositionstart', function () {
-    composing = true;
-  });
-
+  input.addEventListener('compositionstart', function () { composing = true; });
   input.addEventListener('compositionend', function () {
     composing = false;
-    if (tabAfterComposition) {
-      tabAfterComposition = false;
-      setTimeout(complete, 0);
-    }
+    lastInputAt = Date.now();
   });
+  input.addEventListener('input', function () { lastInputAt = Date.now(); });
+
+  function completeWhenSettled() {
+    clearTimeout(tabTimer);
+    var now = Date.now();
+    var settled = !composing && now - lastInputAt >= QUIET_MS;
+    if (settled || now >= tabDeadline) {
+      tabTimer = null;
+      complete();
+      return;
+    }
+    tabTimer = setTimeout(completeWhenSettled, QUIET_MS);
+  }
+
+  function requestCompletion() {
+    if (tabTimer) return; /* one pending completion at a time */
+    tabDeadline = Date.now() + MAX_WAIT_MS;
+    /* always give the IME at least one quiet window to act on the Tab */
+    lastInputAt = Math.max(lastInputAt, Date.now());
+    tabTimer = setTimeout(completeWhenSettled, QUIET_MS);
+  }
 
   input.addEventListener('keydown', function (e) {
     /* Keep the site's global shortcuts (space = menu, 1-6, s...) out of the way */
@@ -540,21 +561,7 @@
 
     if (e.key === 'Tab' || (e.keyCode === 229 && e.code === 'Tab')) {
       e.preventDefault();
-      if (composing || e.isComposing) {
-        tabAfterComposition = true;
-        /* moving focus away and back makes the browser commit the IME text */
-        input.blur();
-        input.focus();
-        /* If compositionend already fired it cleared the flag and scheduled the
-           completion; if still composing we keep waiting. Only when no
-           composition events arrived at all do we complete here. */
-        if (!composing && tabAfterComposition) {
-          tabAfterComposition = false;
-          setTimeout(complete, 0);
-        }
-        return;
-      }
-      complete();
+      requestCompletion();
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (histIndex > 0) {
